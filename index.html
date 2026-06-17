@@ -55,6 +55,59 @@
   .contrib .big b{font-weight:600;color:var(--accent)}
   .contrib .mid{font-size:15.5px;color:var(--ink-soft);font-weight:300;line-height:1.55;margin:18px 0 16px}
   .contrib .honest{font-size:14px;color:var(--ink-faint);font-weight:300;line-height:1.5;border-top:1px solid var(--line);padding-top:15px;margin:0}
+  .deliv-h{font-family:"Fraunces";font-weight:500;font-size:16px;color:var(--ink);margin:20px 0 13px;display:flex;align-items:center;gap:9px}
+  .deliv-h .dot{width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 9px var(--glow-soft);flex:0 0 auto}
+  .delivs{display:grid;gap:12px}
+  .dcard{position:relative;border:1px solid var(--line-2);border-radius:14px;background:var(--paper-2);padding:15px 17px 15px 19px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease}
+  .dcard:hover{transform:translateY(-2px);box-shadow:0 8px 22px -14px rgba(0,0,0,.3)}
+  .dcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px}
+  .dcard.c1::before{background:var(--teal)}
+  .dcard.c2::before{background:var(--accent)}
+  .dcard.c3::before{background:var(--glow)}
+  .dtop{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+  .dicon{flex:0 0 auto;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+  .dcard.c1 .dicon{background:rgba(31,107,99,.10);color:var(--teal)}
+  .dcard.c2 .dicon{background:rgba(122,31,43,.08);color:var(--accent)}
+  .dcard.c3 .dicon{background:rgba(231,181,60,.18);color:#9a6b10}
+  .dicon svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .dlab{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+  .dcard.c1 .dlab{color:var(--teal)}
+  .dcard.c2 .dlab{color:var(--accent)}
+  .dcard.c3 .dlab{color:#9a6b10}
+  .dclaim{font-size:14px;color:var(--ink);font-weight:400;line-height:1.5}
+  .dprac{margin-top:12px;border-top:1px dashed var(--line-2);padding-top:10px}
+  .dprac .pl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);margin-bottom:5px}
+  .dprac p{font-size:12.5px;color:var(--ink-soft);font-weight:300;line-height:1.55;margin:0}
+  .dprac a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(122,31,43,.28)}
+  .leadwrap{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
+  .lead-h{font-family:"Fraunces";font-weight:500;font-size:16px;color:var(--ink);margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .lead-h .dot{width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 9px var(--glow-soft);flex:0 0 auto}
+  .lead-sub{font-size:13px;color:var(--ink-soft);font-weight:300;line-height:1.5;margin:0 0 14px}
+  .leads{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  @media(max-width:640px){.leads{grid-template-columns:1fr}}
+  .lcard{border:1px solid var(--line-2);border-radius:14px;background:var(--paper-2);padding:16px 17px}
+  .lhead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .licon{flex:0 0 auto;width:35px;height:35px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+  .lcard.gov .licon{background:rgba(31,107,99,.10);color:var(--teal)}
+  .lcard.ind .licon{background:rgba(122,31,43,.08);color:var(--accent)}
+  .licon svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .lhead h4{font-family:"Fraunces";font-weight:500;font-size:15.5px;color:var(--ink);line-height:1.15}
+  .lhead .who{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-top:3px}
+  .beat{padding-left:16px;position:relative;margin-bottom:11px}
+  .beat::before{content:"";position:absolute;left:0;top:5px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--paper)}
+  .beat .bl{font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-faint);display:block;margin-bottom:2px}
+  .beat p{font-size:12.5px;color:var(--ink-soft);font-weight:300;line-height:1.5;margin:0}
+  .becomes{margin-top:6px;border-radius:10px;background:rgba(231,181,60,.10);border:1px solid rgba(231,181,60,.42);padding:11px 13px}
+  .becomes .bl{font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#9a6b10;display:block;margin-bottom:3px}
+  .becomes p{font-size:13px;color:var(--ink);font-weight:400;line-height:1.45;margin:0}
+  .fitbox{border:1px solid var(--line-2);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;background:var(--paper-2);padding:17px 20px;margin-top:8px}
+  .fitbox p{font-size:14.5px;color:var(--ink-soft);font-weight:300;line-height:1.6;margin:0 0 11px}
+  .fitbox p:last-child{margin-bottom:0}
+  .fitbox b{color:var(--ink);font-weight:600}
+  .uniq{border:1px solid var(--line-2);border-left:3px solid var(--glow);border-radius:0 12px 12px 0;background:var(--paper-2);padding:14px 18px;margin:2px 0 16px}
+  .uniq .ul{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#9a6b10;margin-bottom:6px}
+  .uniq p{font-size:14px;color:var(--ink-soft);font-weight:300;line-height:1.55;margin:0}
+  .uniq b{color:var(--ink);font-weight:600}
   .contrib .honest a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(122,31,43,.3)}
   .contrib .honest a:hover{border-color:var(--accent)}
 
@@ -300,14 +353,54 @@
         <div class="anabox bridge"><div class="lab">My version (new)</div><h3>Social platform</h3><p>Twitter, Reddit, YouTube, Quora. The same opinion can surface differently on each one.</p></div>
       </div>
 
-      <p class="mid">On top of the dissertation above, four moves turn it into a publishable paper. As far as I can find, they have not been brought together for machine-labelled sentiment across platforms before:</p>
+      <p class="mid">On top of the dissertation above, four concrete moves turn it into a publishable paper. As far as I can find, they have not been brought together for machine-labelled sentiment across platforms before:</p>
       <div class="cgrid">
-        <div class="ccard"><div class="ctop"><span class="cnum">01</span><span class="ctag">the reframe</span></div><h4>A new lens</h4><p>Treating each platform as the measuring instrument turns "platforms differ" from a finding you just report into a measurement problem you can actually solve.</p></div>
-        <div class="ccard main"><div class="ctop"><span class="cnum">02</span><span class="ctag gold">main result</span></div><h4>A number</h4><p>How much of the gap between platforms is the platform itself, and how much is real disagreement. Generalizability theory splits the two, using NRC emotion components as indicators and a re-checked human sample as the independent yardstick.</p></div>
-        <div class="ccard"><div class="ctop"><span class="cnum">03</span><span class="ctag">reusable</span></div><h4>A fairness check</h4><p>A reusable test of which platform comparisons are sound before you trust them: measurement invariance and DIF, run on several emotion signals per event rather than one label.</p></div>
-        <div class="ccard"><div class="ctop"><span class="cnum">04</span><span class="ctag soft">first step</span></div><h4>A correction, where it holds</h4><p>Use shared policy events as anchors to line the platforms onto one scale. Where no stable anchor exists, the honest answer is that they cannot be fairly compared, which is itself worth reporting.</p></div>
+        <div class="ccard"><div class="ctop"><span class="cnum">01</span><span class="ctag">the reframe</span></div><h4>Platform as measuring instrument</h4><p>Treat each platform as the instrument doing the measuring, the way a survey treats phone, web and face to face. This turns "platforms differ" from a finding you report into a measurement problem you can test.</p></div>
+        <div class="ccard main"><div class="ctop"><span class="cnum">02</span><span class="ctag gold">main result</span></div><h4>Variance split: platform vs. real disagreement</h4><p>A generalizability-theory decomposition that puts a number on how much of the cross-platform gap is the platform itself and how much is genuine disagreement, using NRC emotion components as indicators and a re-checked human sample as the independent yardstick.</p></div>
+        <div class="ccard"><div class="ctop"><span class="cnum">03</span><span class="ctag">reusable</span></div><h4>Invariance and DIF testing</h4><p>Measurement invariance and differential item functioning, run on several emotion signals per event, to say which platform comparisons are sound before you trust them.</p></div>
+        <div class="ccard"><div class="ctop"><span class="cnum">04</span><span class="ctag soft">first step</span></div><h4>Test equating onto one scale</h4><p>Use shared policy events as anchor items to line the platforms onto one comparable scale. Where no stable anchor exists, the honest answer is that they cannot be fairly compared, which is itself worth reporting.</p></div>
       </div>
-      <p class="honest">To be clear about what is mine: the split between how it is measured and who posts is not mine to claim. Survey work drew it first (<a href="https://doi.org/10.1093/poq/nfab018" target="_blank">Sen et al.</a>, <a href="https://doi.org/10.1093/poq/nfv048" target="_blank">Schober et al.</a>), and others have treated annotators as instruments in the same spirit (<a href="https://doi.org/10.1145/3531146.3533216" target="_blank">Sachdeva et al.</a>). These are all established tools, and the closest adjacent use is <a href="https://doi.org/10.1177/08944393241254464" target="_blank">Cernat et al. 2025</a>, who run a multitrait-multimethod model treating survey and digital-trace data as different methods, though not across social platforms and not on sentiment. What is new here is bringing the full toolkit onto the platform itself, for machine-labelled sentiment across platforms. I am not claiming to recover a "true" opinion, only a comparable one.</p>
+      <div class="uniq">
+        <div class="ul">How this is unique</div>
+        <p>Each piece exists on its own. What I cannot find anywhere is the combination: <b>measurement-equivalence tools, applied to machine-labelled sentiment, compared across two or more platforms, with the platform itself as the thing being tested.</b> The nearest work each stops one step short, survey self-report rather than model-labelled text (<a href="https://doi.org/10.1371/journal.pone.0300356" target="_blank">Boyd et al. 2024</a>), annotators rather than platforms (<a href="https://doi.org/10.1145/3531146.3533216" target="_blank">Sachdeva et al. 2022</a>), or correlation rather than equating (<a href="https://doi.org/10.1038/s41598-022-14579-y" target="_blank">Pellert et al. 2022</a>).</p>
+      </div>
+      <p class="honest">To be clear about what is mine: the split between how it is measured and who posts is not mine to claim. Survey work drew it first (<a href="https://doi.org/10.1093/poq/nfab018" target="_blank">Sen et al.</a>, <a href="https://doi.org/10.1093/poq/nfv048" target="_blank">Schober et al.</a>). The closest adjacent use of the toolkit is <a href="https://doi.org/10.1177/08944393241254464" target="_blank">Cernat et al. 2025</a>, who run a multitrait-multimethod model treating survey and digital-trace data as different methods, though not across social platforms and not on sentiment. What is new is bringing the full toolkit onto the platform itself, for machine-labelled sentiment across platforms. I am not claiming to recover a "true" opinion, only a comparable one.</p>
+      <div class="deliv-h"><span class="dot"></span>What the contribution delivers</div>
+      <div class="delivs">
+        <div class="dcard c1">
+          <div class="dtop"><div class="dicon"><svg viewBox="0 0 24 24"><path d="M3 13a9 9 0 0 1 18 0"/><path d="M12 13l4.5-3.2"/><circle cx="12" cy="13" r="1.25"/></svg></div><div class="dlab">New knowledge</div></div>
+          <div class="dclaim">It turns a question that is normally assumed away into a measured quantity: how much of a cross-platform sentiment gap is real opinion, and how much is a recording artefact of the platform.</div>
+          <div class="dprac"><div class="pl">In practice</div><p>My dissertation measured taxation at about 65% negative, with Twitter spiking sharper than YouTube on the same announcements. Is that a real split in opinion, or just Twitter's format amplifying anger? This puts a number on it, where <a href="https://doi.org/10.1038/s41598-022-14579-y" target="_blank">Pellert et al. (2022)</a> validated cross-platform sentiment against self-reports but never separated the two.</p></div>
+        </div>
+        <div class="dcard c2">
+          <div class="dtop"><div class="dicon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14.5v6M14.5 17.5h6"/></svg></div><div class="dlab">How others build on it</div></div>
+          <div class="dclaim">A drop-in diagnostic. Any team comparing sentiment across platforms can run the invariance check to see whether their comparison holds, and equate the scales where it does. It turns a one-off finding into a reusable instrument.</div>
+          <div class="dprac"><div class="pl">In practice</div><p>A researcher comparing welfare-reform sentiment across Reddit and YouTube could run the same check before pooling them into one trend, rather than assuming the scales match. That is the reusable measurement step <a href="https://doi.org/10.1093/poq/nfv048" target="_blank">Schober et al. (2016)</a> argued social media analysis needs.</p></div>
+        </div>
+        <div class="dcard c3">
+          <div class="dtop"><div class="dicon"><svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M4 16l4.5-4.5 3.5 3.5L20 7"/><path d="M16 7h4v4"/></svg></div><div class="dlab">What it advances</div></div>
+          <div class="dclaim">It gives the "social media as a barometer of opinion" claim a falsifiable measurement footing, advancing computational social science, public-opinion measurement, and the validity toolkit for applied NLP.</div>
+          <div class="dprac"><div class="pl">In practice</div><p>Before a cross-platform sentiment index is reported as public opinion, this says which platforms are safe to combine and which are not. It is the kind of total-error scrutiny <a href="https://doi.org/10.1093/poq/nfab018" target="_blank">Sen et al. (2021)</a> brought to digital traces, now carried to machine-labelled sentiment.</p></div>
+        </div>
+      </div>
+      <div class="leadwrap">
+        <div class="lead-h"><span class="dot"></span>Where this could lead</div>
+        <p class="lead-sub">The same diagnostic, in the hands of the organisations that already watch social sentiment, and what it lets them build.</p>
+        <div class="leads">
+          <div class="lcard gov">
+            <div class="lhead"><div class="licon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10M9.5 21V10M14.5 21V10M19 21V10"/><path d="M3 10l9-6 9 6z"/></svg></div><div><h4>A Budget mood index a department can report</h4><div class="who">Government &middot; HM Treasury, DWP</div></div></div>
+            <div class="beat"><span class="bl">Today</span><p>The Treasury reads Budget reaction off X, while Reddit and YouTube tell a different story and cannot be pooled into one figure, so a single platform ends up standing in for the public.</p></div>
+            <div class="beat"><span class="bl">With this method</span><p>Test whether the platforms are measuring the same reaction to the same announcement, then combine only the ones that are, and flag the ones that are not.</p></div>
+            <div class="becomes"><span class="bl">Becomes</span><p>A defensible public-mood index, updated around each fiscal event, that an official could brief on without a methodologist objecting that the platforms were never comparable. The proactive tool my dissertation set out to build, now on a measurement footing.</p></div>
+          </div>
+          <div class="lcard ind">
+            <div class="lhead"><div class="licon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></div><div><h4>A brand-health score that holds up in the boardroom</h4><div class="who">Industry &middot; bank, retailer, social-listening firm</div></div></div>
+            <div class="beat"><span class="bl">Today</span><p>A bank or retailer tracking reaction to a price change sums TikTok, X and Reddit into one brand-sentiment number that quietly mixes each platform's house style with real opinion.</p></div>
+            <div class="beat"><span class="bl">With this method</span><p>Check the score is measuring one thing before it reaches the dashboard, and correct it on the platforms where it drifts.</p></div>
+            <div class="becomes"><span class="bl">Becomes</span><p>A brand-health metric leadership can act on, instead of a figure that swings with whichever platform was loudest that week. For a social-listening vendor, it is a product feature competitors do not have.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -346,8 +439,8 @@
       <div class="bias known">
         <div class="lab">Already studied</div>
         <h3>Who posts</h3>
-        <p>The wrong people post, so the crowd is not representative. You fix it by re-weighting to match the population.</p>
-        <div class="src"><a href="https://doi.org/10.1177/0894439316631043" target="_blank">Jungherr et al. 2017 &#8599;</a></div>
+        <p>The wrong people post, or the slice you collect is skewed, so the crowd is not representative. You fix it by re-weighting to match the population.</p>
+        <div class="src"><a href="https://doi.org/10.1177/0894439316631043" target="_blank">Jungherr et al. 2017 &#8599;</a> &middot; <a href="https://doi.org/10.1609/icwsm.v7i1.14401" target="_blank">Morstatter et al. 2013 &#8599;</a></div>
       </div>
       <div class="bias ours">
         <div class="lab"><span class="spark"></span>What I work on</div>
@@ -355,6 +448,17 @@
         <p>Observations suggest that even when the opinion is the same, each platform records it differently. Re-weighting cannot fix that. The method below is designed to test whether this is true, then measure and ideally correct it.</p>
         <div class="src"><a href="https://doi.org/10.1093/poq/nfab018" target="_blank">framing from Sen et al. 2021 &#8599;</a></div>
       </div>
+    </div>
+  </section>
+
+  <!-- FIT WITH ICWSM -->
+  <section class="sec reveal">
+    <div class="kicker">Why this fits ICWSM</div>
+    <h2>Where it sits in the conference</h2>
+    <p>ICWSM has a long line of work asking whether social media data faithfully measures public opinion. This paper is a direct continuation of it, moving the question from "is the sample representative" to "is the measurement equivalent."</p>
+    <div class="fitbox">
+      <p><b>Tufekci (2014)</b> set out the validity and representativeness problems of social media big data at ICWSM, including the field's over-reliance on a single platform. <b>Morstatter et al. (2013)</b> asked whether the data you pull even represents the platform it comes from. <b>Cohen and Ruths (2013)</b> showed that attitude inference from social media had been systematically over-reported because validation samples were skewed. <b>O'Connor et al. (2010)</b> linked text sentiment to opinion series, but treated platform noise as something that averages out.</p>
+      <p>These are about who is in the data, how it is sampled, and whether inferred labels can be trusted. None asks whether the same opinion is recorded equivalently across platforms once a model has labelled it. That measurement-equivalence question is what I add, with psychometric tools the community has not yet applied to machine-labelled cross-platform sentiment. That is the fit: the same long-standing ICWSM concern, carried to the next unexamined source of error.</p>
     </div>
   </section>
 
@@ -402,7 +506,9 @@
       <div class="rarrow">&rarr;</div>
       <div class="rstep core"><span class="rtag new">the contribution</span><h4>Run the method</h4><p>The five steps above: establish, measure, check, adjust, then line the platforms up.</p></div>
       <div class="rarrow">&rarr;</div>
-      <div class="rstep"><span class="rtag goal">the goal</span><h4>Write and submit</h4><p>Target ICWSM or EPJ Data Science, with Dr Haig as co-author.</p></div>
+      <div class="rstep"><span class="rtag new">next step</span><h4>Write up and post to arXiv</h4><p>Put a preprint on arXiv first to timestamp the contribution, which also supports my PhD applications.</p></div>
+      <div class="rarrow">&rarr;</div>
+      <div class="rstep"><span class="rtag goal">the goal</span><h4>Submit to ICWSM 2027</h4><p>Edinburgh, May 2027, with Dr Haig as co-author. Aim for the September 2026 round.</p></div>
     </div>
   </section>
 
@@ -468,6 +574,9 @@
       <div class="grp">Social media opinion, bias, and the closest work</div>
       <ol>
         <li>O'Connor, B., Balasubramanyan, R., Routledge, B. R., &amp; Smith, N. A. (2010). <b>From tweets to polls: linking text sentiment to public opinion time series</b>. <i>ICWSM 2010</i>, 122-129. <a href="https://doi.org/10.1609/icwsm.v4i1.14031" target="_blank">doi.org/10.1609/icwsm.v4i1.14031</a></li>
+        <li>Tufekci, Z. (2014). <b>Big questions for social media big data: representativeness, validity and other methodological pitfalls</b>. <i>ICWSM 2014</i>, 8(1), 505-514. <a href="https://doi.org/10.1609/icwsm.v8i1.14517" target="_blank">doi.org/10.1609/icwsm.v8i1.14517</a></li>
+        <li>Morstatter, F., Pfeffer, J., Liu, H., &amp; Carley, K. M. (2013). <b>Is the sample good enough? Comparing data from Twitter's streaming API with Twitter's firehose</b>. <i>ICWSM 2013</i>, 7(1), 400-408. <a href="https://doi.org/10.1609/icwsm.v7i1.14401" target="_blank">doi.org/10.1609/icwsm.v7i1.14401</a></li>
+        <li>Cohen, R., &amp; Ruths, D. (2013). <b>Classifying political orientation on Twitter: it's not easy!</b> <i>ICWSM 2013</i>, 7(1), 91-99. <a href="https://doi.org/10.1609/icwsm.v7i1.14434" target="_blank">doi.org/10.1609/icwsm.v7i1.14434</a></li>
         <li>Jungherr, A., Schoen, H., Posegga, O., &amp; J&uuml;rgens, P. (2017). <b>Digital trace data in the study of public opinion</b>. <i>Social Science Computer Review</i>, 35(3), 336-356. <a href="https://doi.org/10.1177/0894439316631043" target="_blank">doi.org/10.1177/0894439316631043</a></li>
         <li>Olteanu, A., Castillo, C., Diaz, F., &amp; K&#305;c&#305;man, E. (2019). <b>Social data: biases, methodological pitfalls, and ethical boundaries</b>. <i>Frontiers in Big Data</i>, 2:13. <a href="https://doi.org/10.3389/fdata.2019.00013" target="_blank">doi.org/10.3389/fdata.2019.00013</a></li>
         <li>Mellon, J., &amp; Prosser, C. (2017). <b>Twitter and Facebook are not representative of the general population</b>. <i>Research &amp; Politics</i>, 4(3). <a href="https://doi.org/10.1177/2053168017720008" target="_blank">doi.org/10.1177/2053168017720008</a></li>
