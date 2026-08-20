@@ -283,15 +283,57 @@
   .ccard .ctag{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;border-radius:100px;padding:3px 9px;color:var(--teal);background:rgba(31,107,99,.08);border:1px solid rgba(31,107,99,.25)}
   .ccard .ctag.gold{color:#7a5b14;background:rgba(231,181,60,.16);border-color:rgba(231,181,60,.55)}
   .ccard .ctag.soft{color:var(--ink-faint);background:rgba(0,0,0,.02);border-color:var(--line-2)}
+
+  /* TABS (added v2) */
+  .tabbar{display:none;gap:8px;margin:26px 0 6px;flex-wrap:wrap}
+  html.js .tabbar{display:flex}
+  .tabbtn{font-family:"Newsreader",Georgia,serif;font-size:15px;color:var(--ink-soft);background:var(--paper-2);border:1px solid var(--line-2);border-radius:100px;padding:9px 18px;cursor:pointer;transition:all .18s;display:inline-flex;align-items:center;gap:8px}
+  .tabbtn .tsub{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .tabbtn:hover{border-color:var(--accent-soft);color:var(--accent)}
+  .tabbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tabbtn.active .tsub{color:rgba(255,255,255,.75)}
+  html.js .tabpane{display:none}
+  html.js .tabpane.active{display:block}
+  .pane-note{display:block;margin:34px 0 -8px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+  html.js .pane-note{display:none}
+  .qa{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:16px 0}
+  .qa .qh{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+  .qa h3{font-family:"Fraunces",serif;font-weight:500;font-size:20px;line-height:1.25}
+  .qa .verdict{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:4px 12px;border-radius:100px;white-space:nowrap}
+  .v-accept{background:rgba(31,107,99,.12);color:var(--teal);border:1px solid rgba(31,107,99,.35)}
+  .v-answer{background:rgba(231,181,60,.14);color:#7a5b14;border:1px solid rgba(231,181,60,.5)}
+  .v-push{background:rgba(122,31,43,.08);color:var(--accent);border:1px solid rgba(122,31,43,.3)}
+  .qa .concern{font-size:16px;color:var(--ink-soft);font-style:italic;border-left:3px solid var(--line-2);padding-left:14px;margin:10px 0}
+  .qa .answer{font-size:16.5px;line-height:1.62}
+  .verdictbox{background:var(--wash);border:1px solid var(--line-2);border-radius:14px;padding:22px 24px;margin:20px 0;font-size:17px}
+  .verdictbox q{font-style:italic;color:var(--accent)}
+  .chg{border-left:3px solid var(--line-2);padding:2px 0 2px 20px;margin:22px 0;position:relative}
+  .chg::before{content:"";position:absolute;left:-7px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--teal);border:2px solid var(--paper)}
+  .chg h3{font-family:"Fraunces",serif;font-weight:500;font-size:19px;margin-bottom:6px}
+  .chg .was,.chg .now{font-size:15.5px;line-height:1.55;margin:5px 0;padding-left:64px;position:relative}
+  .chg .was::before,.chg .now::before{position:absolute;left:0;top:2px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .chg .was{color:var(--ink-faint)}
+  .chg .was::before{content:"was";color:var(--ink-faint)}
+  .chg .now::before{content:"now";color:var(--teal)}
+  .chg .why{font-size:13.5px;color:var(--ink-faint);margin-top:6px;padding-left:64px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="meta">
-    <div class="tag">Paper idea, for review</div>
-    <div>For Dr Ella Haig</div>
+    <div class="tag">Paper plan &middot; revised after review</div>
+    <div>For Dr Ella Haig and Eni &middot; v2, 21 Aug 2026</div>
   </div>
+
+  <nav class="tabbar" aria-label="Views">
+    <button class="tabbtn active" data-tab="proposal">The proposal <span class="tsub">updated</span></button>
+    <button class="tabbtn" data-tab="review">The review, answered <span class="tsub">9 points</span></button>
+    <button class="tabbtn" data-tab="changelog">Change log <span class="tsub">v1 to v2</span></button>
+  </nav>
+
+  <div class="tabpane active" id="pane-proposal">
+  <span class="pane-note">Part 1 &middot; The proposal (updated)</span>
 
   <header class="hero">
     <div class="eyebrow">A paper from my MSc dissertation</div>
@@ -411,25 +453,27 @@
   <section class="sec reveal">
     <div class="kicker">How the contribution is made</div>
     <h2>The method, step by step</h2>
-    <p>Five steps, starting with establishing whether the divergence is real. Each step names the closest existing work and what it missed (the names link to the papers). The last step can go two ways, and I am honest about both.</p>
+    <p>Six steps, starting with establishing whether the divergence is real. Each step names the closest existing work and what it missed (the names link to the papers). The equating step can go two ways, and I am honest about both; either way, the final step shows what ignoring the platform costs.</p>
     <div class="flow">
       <div class="fnode io"><div class="ft">Raw sentiment from four platforms, on scales you cannot compare</div></div>
       <div class="fconn"></div>
       <div class="fnode"><div class="fn">1</div><div class="ft"><span class="stage">Establish</span><b>Show the divergence is real</b> before the measurement tools begin <span class="ftag">prerequisite</span><span class="sub">same-event platform comparison, controlling for topic mix and time</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1038/s41598-022-14579-y" target="_blank">Pellert et al. 2022</a>. Found correlations between machine sentiment and self-reported mood across two platforms, but without testing whether differences reflect measurement non-equivalence.</span></div></div>
       <div class="fconn"></div>
-      <div class="fnode core"><div class="fn">2</div><div class="ft"><span class="stage">Diagnose</span><b>Measure</b> how much of the difference is the platform, not real disagreement <span class="ftag gold">main result</span><span class="sub">generalizability theory, platform as the factor, human-checked sample as the yardstick</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1609/icwsm.v4i1.14031" target="_blank">O'Connor et al. 2010</a>. Treated sentiment as noisy and assumed it averages out, so the systematic platform part was never measured.</span></div></div>
+      <div class="fnode core"><div class="fn">2</div><div class="ft"><span class="stage">Diagnose</span><b>Measure</b> how much of the difference is the platform, not real disagreement <span class="ftag gold">main result</span><span class="sub">generalizability theory, platform as the factor, an expanded human-labelled sample (1,000 to 1,500 posts, second annotator on a subset) as the independent yardstick</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1609/icwsm.v4i1.14031" target="_blank">O'Connor et al. 2010</a>. Treated sentiment as noisy and assumed it averages out, so the systematic platform part was never measured.</span></div></div>
       <div class="fconn"></div>
       <div class="fnode"><div class="fn">3</div><div class="ft"><span class="stage">Validate</span><b>Check</b> which platform comparisons are actually fair <span class="ftag">new</span><span class="sub">measurement invariance and DIF on several emotion signals per event</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1371/journal.pone.0300356" target="_blank">Boyd et al. 2024</a>. Ran this exact check across platforms, but for a survey questionnaire, not text a model had labelled.</span></div></div>
       <div class="fconn"></div>
       <div class="fnode"><div class="fn">4</div><div class="ft"><span class="stage">Control</span><b>Allow</b> for the fact that platforms talk about different topics<span class="sub">multilevel modelling, topic mix held constant</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1177/0894439316631043" target="_blank">Jungherr et al. 2017</a>. Tackled who posts; separating the platform's own effect from the topics it happens to discuss was left open.</span></div></div>
       <div class="fconn"></div>
-      <div class="fnode"><div class="fn">5</div><div class="ft"><span class="stage">Correct</span><b>Line up</b> the platforms onto one shared scale <span class="ftag soft">first step</span><span class="sub">equating with shared policy events as anchors</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1177/19389655251327536" target="_blank">Han &amp; Anderson 2025</a>. Corrected platform selection and measurement bias too, but on human star ratings with a survey to check against, not machine-labelled text.</span></div></div>
+      <div class="fnode"><div class="fn">5</div><div class="ft"><span class="stage">Correct</span><b>Line up</b> the platforms onto one shared scale <span class="ftag soft">first step</span><span class="sub">equating with pre-identified fiscal events as anchors (the September 2022 mini-budget as centrepiece), using 48-hour and two-week windows with time-since-event modelled, so platform reaction speed is part of the mode effect rather than noise</span><span class="prior"><b>Closest:</b> <a href="https://doi.org/10.1177/19389655251327536" target="_blank">Han &amp; Anderson 2025</a>. Corrected platform selection and measurement bias too, but on human star ratings with a survey to check against, not machine-labelled text.</span></div></div>
       <div class="fconn"></div>
       <div class="fork"></div>
       <div class="outcomes">
         <div class="outcome yes"><span class="otag">if it lines up</span><b>One comparable signal</b> across all four platforms, ready to pool and read together.</div>
         <div class="outcome no"><span class="otag">if it does not</span><b>Report that they cannot be fairly compared.</b> That null is a real finding, not a failure.</div>
       </div>
+      <div class="fconn"></div>
+      <div class="fnode"><div class="fn">6</div><div class="ft"><span class="stage">Demonstrate</span><b>Show the cost</b> of ignoring the platform <span class="ftag">added after review</span><span class="sub">simulate the naive approach: pool all platforms into one sentiment index and compare it with the measurement-adjusted version on the same fiscal events. Where the naive index misreads the timing or severity of public reaction, the danger of unadjusted aggregation becomes concrete rather than claimed</span></div></div>
     </div>
   </section>
 
@@ -501,17 +545,19 @@
     <h2>From the dissertation to the paper</h2>
     <p>How the finished dissertation becomes the new paper. Most pieces already exist; the key new work is first establishing the divergence rigorously, then running the measurement method.</p>
     <div class="road">
-      <div class="rstep"><span class="rtag done">have it</span><h4>The dissertation</h4><p>279,000 posts, a BERT model at 0.878, strong topic-level findings, and preliminary observations of platform differences.</p></div>
+      <div class="rstep"><span class="rtag done">have it</span><h4>The dissertation</h4><p>About 279,000 posts, a BERT model at 0.878, strong topic-level findings, and preliminary observations of platform differences. First job: recount the per-platform totals from raw data, since the dissertation tables are internally inconsistent.</p></div>
       <div class="rarrow">&rarr;</div>
-      <div class="rstep"><span class="rtag done">have it</span><h4>The labelled sample</h4><p>You already hand-labelled about 200 posts to validate the model. That is the independent yardstick the method uses; for this it just wants to be a little larger and spread evenly across the four platforms.</p></div>
+      <div class="rstep"><span class="rtag new">audit first</span><h4>The anchor-density audit</h4><p>Map 5 to 10 UK fiscal shocks onto the corpus and count posts per platform in 48-hour and two-week windows. This decides whether all four platforms carry enough overlapping data, whether we narrow to the dense ones (a two-platform comparison is the cleanest case), or whether a targeted patch of new collection is needed.</p></div>
+      <div class="rarrow">&rarr;</div>
+      <div class="rstep"><span class="rtag new">grows</span><h4>The labelled sample</h4><p>The 200-post validation set grows to 1,000 to 1,500 hand-labelled posts drawn from the anchor-event windows, split evenly across platforms, with a second annotator on a subset. This matters twice over: the classifier was trained on lexicon-seeded labels, so an expanded human sample is what makes the yardstick genuinely independent.</p></div>
       <div class="rarrow">&rarr;</div>
       <div class="rstep"><span class="rtag new">new first step</span><h4>Establish the divergence</h4><p>Show the platform differences hold after matching on shared events and topic mix. This must come before the measurement tools run.</p></div>
       <div class="rarrow">&rarr;</div>
-      <div class="rstep core"><span class="rtag new">the contribution</span><h4>Run the method</h4><p>The five steps above: establish, measure, check, adjust, then line the platforms up.</p></div>
+      <div class="rstep core"><span class="rtag new">the contribution</span><h4>Run the method</h4><p>The six steps above: establish, measure, check, adjust, line the platforms up, then show the cost of ignoring them. The centrepiece case study is the September 2022 mini-budget, with a handful of other fiscal events as anchors.</p></div>
       <div class="rarrow">&rarr;</div>
-      <div class="rstep"><span class="rtag new">next step</span><h4>Write up and post to arXiv</h4><p>Put a preprint on arXiv first to timestamp the contribution, which also supports my PhD applications.</p></div>
+      <div class="rstep"><span class="rtag new">next step</span><h4>Write up and post to arXiv</h4><p>Put a preprint on arXiv by December 2026 to timestamp the contribution, which also supports my PhD applications.</p></div>
       <div class="rarrow">&rarr;</div>
-      <div class="rstep"><span class="rtag goal">the goal</span><h4>Submit to ICWSM 2027</h4><p>Edinburgh, May 2027, with Dr Haig as co-author. Aim for the September 2026 round.</p></div>
+      <div class="rstep"><span class="rtag goal">the goal</span><h4>Submit to ICWSM 2027</h4><p>Edinburgh, May 2027, with Dr Haig as co-author. Verified against the official call: the 15 September 2026 round accepts full papers only, and posters (up to 5 pages) are accepted in the 15 January 2027 round. So: a poster in the January round, with the full paper to follow.</p></div>
     </div>
   </section>
 
@@ -524,7 +570,8 @@
       <ul>
         <li><b>Sentiment is not the same as support.</b> I measure the mood in the text, which stands in for opinion. I keep that distinction clear.</li>
         <li><b>It is observational, and this is the biggest caveat.</b> The same event draws different people and different sub-topics on each platform, so what I put down to the platform is an upper bound until I can follow the same users across platforms. I keep that front and centre.</li>
-        <li><b>It is these four platforms.</b> The findings are about them, not every platform.</li>
+        <li><b>It is these four platforms, or fewer.</b> The findings are about them, not every platform, and if the anchor-density audit shows some platforms too sparse, the comparison narrows to the dense ones rather than stretching thin data.</li>
+        <li><b>The counts are being recomputed.</b> The dissertation per-platform figures are internally inconsistent (they sum to roughly 395k against the 279k headline), so every count in the paper will be recomputed from the raw data before analysis. Better that we report this than a reviewer finds it.</li>
         <li><b>The fix needs a real test.</b> Lining the platforms up is step one. Checking whether mode-adjusted sentiment tracks a UK opinion series (British Social Attitudes, British Election Study, or YouGov economic trackers) would come later, but the contribution does not depend on it.</li>
       </ul>
     </div>
@@ -593,6 +640,105 @@
     </div>
   </section>
 
+  </div><!-- /pane-proposal -->
+
+  <div class="tabpane" id="pane-review">
+  <span class="pane-note">Part 2 &middot; The review, answered</span>
+
+  <section class="sec reveal in">
+    <div class="kicker">Independent review, August 2026</div>
+    <h2>What the reviewer said, and what we did about it</h2>
+    <p>Dr Haig asked Eni, a colleague with ICWSM experience, to pressure-test this brief. She ran a five-part critique (assisted by her institution's enterprise AI tools) against the brief and the dissertation itself. Every substantive point is listed below with its answer. Nothing is hidden: two points changed the plan materially, several were accepted outright, and two get a reasoned pushback.</p>
+    <div class="verdictbox">The reviewer's overall verdict: the conceptual framing is <q>rock solid</q> and the contribution is <q>a textbook definition of a meaningful academic contribution</q>. The problems are all about the data, not the idea. The revised plan below is the answer to exactly that.</div>
+
+    <div class="qa"><div class="qh"><h3>1. The validation set is too small</h3><span class="verdict v-accept">accepted, and extended</span></div>
+      <div class="concern">200 hand-labelled posts cannot anchor a generalizability or DIF analysis over 279,000; expand to roughly 1,000 to 1,500, evenly split across platforms.</div>
+      <div class="answer">Accepted in full: the gold set grows to <b>1,000 to 1,500 posts drawn from the anchor-event windows</b>, split evenly, with a second annotator on a subset so agreement can be defended properly. We go one step further than the review: the classifier was originally trained on lexicon-seeded (VADER) labels, so the old 200-post sample was doing double duty. The expanded human sample is what makes the yardstick genuinely independent, which a measurement paper cannot do without.</div></div>
+
+    <div class="qa"><div class="qh"><h3>2. No pre-identified anchor events</h3><span class="verdict v-accept">accepted</span></div>
+      <div class="concern">Invariance and equating need synchronised external shocks across all platforms; without pre-identifying them you cannot know whether the corpus has enough overlapping data. A fiscal announcement might mean 20,000 tweets but five Reddit threads and zero YouTube videos (the zero-cell problem).</div>
+      <div class="answer">Accepted. The plan now begins with an <b>anchor-density audit</b>: 5 to 10 named UK fiscal shocks (the September 2022 mini-budget as centrepiece, plus Budgets, Autumn Statements and Bank of England decisions) mapped onto the corpus, with post counts per platform in 48-hour and two-week windows. The audit decides everything downstream before any analysis is trusted.</div></div>
+
+    <div class="qa"><div class="qh"><h3>3. Is a policy announcement a stable anchor at all?</h3><span class="verdict v-answer">answered, open for discussion</span></div>
+      <div class="concern">On Twitter an announcement triggers immediate reactions; on Reddit the debate may arrive three days later. Can such events serve as invariant anchor items across fundamentally different communication rhythms?</div>
+      <div class="answer">The design answer: use both tight (48-hour) and wide (two-week) windows, include <b>time-since-event in the multilevel model</b>, and treat platform reaction latency as part of the mode effect being measured rather than as noise to remove. If latency profiles differ systematically, that is itself evidence about how platforms record the same public moment. This is the main methodological question flagged for the next supervision meeting.</div></div>
+
+    <div class="qa"><div class="qh"><h3>4. The dataset is too small for a modern ICWSM empirical paper</h3><span class="verdict v-push">reframed, with the reviewer</span></div>
+      <div class="concern">279k posts across four platforms averages roughly 70k per platform; modern ICWSM empirical papers often expect millions, and spread over four topics and several years the daily volume is sparse.</div>
+      <div class="answer">Partly a pushback the reviewer herself endorsed: the millions-of-posts bar applies to empirical-discovery papers. This is now explicitly a <b>measurement-methods paper</b>, where density inside the anchor windows matters more than raw corpus size. If the audit still shows thin cells, the fallback is a targeted patch of new collection in exactly those windows, which is squarely within my professional capability.</div></div>
+
+    <div class="qa"><div class="qh"><h3>5. The per-platform counts do not add up</h3><span class="verdict v-accept">accepted, found independently</span></div>
+      <div class="concern">The reviewer's own platform figures (Twitter ~120k, Reddit ~109k, YouTube ~25k, Quora ~25k) do not match the dissertation tables.</div>
+      <div class="answer">Confirmed and worse than the review noticed: the dissertation text itself gives Reddit ~130k and YouTube ~120k, which sums to roughly 395k against the 279k headline. Neither set of figures can be trusted as written. <b>Recounting every total from the raw data is now step zero</b>, and the limits section of the proposal says so publicly.</div></div>
+
+    <div class="qa"><div class="qh"><h3>6. Units of measurement differ across platforms</h3><span class="verdict v-push">partly the point</span></div>
+      <div class="concern">A tweet, a Reddit thread, a Quora essay and a YouTube comment are structurally different units; they cannot be treated as identical parallel test items.</div>
+      <div class="answer">Partly a flaw, partly the premise: that platforms record the same opinion in structurally different ways is exactly what the paper measures. Operationally it is handled by fixing the unit of analysis: a sentiment score per post, aggregated to event-by-platform cells, with the measurement machinery working at the cell level rather than pretending posts are parallel items.</div></div>
+
+    <div class="qa"><div class="qh"><h3>7. No conversational-depth metric</h3><span class="verdict v-accept">acknowledged, deferred</span></div>
+      <div class="concern">Each comment was treated as a flat text string; messages-per-post and conversational structure were never captured.</div>
+      <div class="answer">True, and acknowledged as a limitation. It does not affect the invariance machinery, which operates on per-event sentiment scores, but conversational depth is noted as future work and would matter for any follow-up on how discussion structure shapes expressed sentiment.</div></div>
+
+    <div class="qa"><div class="qh"><h3>8. The selection confound</h3><span class="verdict v-accept">already conceded, kept front and centre</span></div>
+      <div class="concern">Without following the same users across platforms, how cleanly can "how it is measured" be separated from "who posts"?</div>
+      <div class="answer">It cannot be fully separated, and the proposal says so: the platform effect is an <b>upper bound</b> until matched users exist. The multilevel model, holding event and topic mix constant, narrows the gap observationally; the honest label stays on the result.</div></div>
+
+    <div class="qa"><div class="qh"><h3>9. Should this be a poster or short paper rather than a full paper?</h3><span class="verdict v-accept">accepted, and now verified</span></div>
+      <div class="concern">Given the data constraints, the poster track, which explicitly welcomes novel frameworks still proving out their data, may be the right first venue.</div>
+      <div class="answer">Accepted, and the mechanics are now verified against the official ICWSM 2027 call: the 15 September 2026 round accepts full papers only, while <b>posters (up to 5 pages) are accepted in the 15 January 2027 round</b>. The plan is therefore: reframed analysis and annotation first, arXiv preprint by December 2026, poster to the January round, full paper to follow.</div></div>
+  </section>
+  </div><!-- /pane-review -->
+
+  <div class="tabpane" id="pane-changelog">
+  <span class="pane-note">Part 3 &middot; Change log</span>
+
+  <section class="sec reveal in">
+    <div class="kicker">v1 (July 2026) to v2 (21 August 2026)</div>
+    <h2>What changed from the original plan</h2>
+    <p>Every material change from the original brief, with what prompted it. The original claim, the five-step core of the method, the honesty about limits and the reference library are unchanged; the review made the plan around them concrete.</p>
+
+    <div class="chg"><h3>Framing: from finding to method</h3>
+      <div class="was">An empirical paper flavour: establish the divergence, then measure it.</div>
+      <div class="now">Explicitly a measurement-methods paper: the contribution is the reusable diagnostic, demonstrated on UK fiscal events, with the danger of unadjusted aggregation shown concretely.</div>
+      <div class="why">Review point 4; the reviewer's own salvage recommendation.</div></div>
+
+    <div class="chg"><h3>The gold standard grows 5 to 7 times</h3>
+      <div class="was">"The labelled sample... just wants to be a little larger" (200 posts, kappa ~0.78).</div>
+      <div class="now">1,000 to 1,500 hand-labelled posts from anchor-event windows, evenly split across platforms, second annotator on a subset.</div>
+      <div class="why">Review point 1, plus the self-identified circularity: the classifier was trained on lexicon-seeded labels, so the human sample must carry the yardstick alone.</div></div>
+
+    <div class="chg"><h3>Anchor events are now named, and audited first</h3>
+      <div class="was">"Shared policy events as anchors", unspecified.</div>
+      <div class="now">5 to 10 named UK fiscal shocks, September 2022 mini-budget as centrepiece, 48-hour and two-week windows, with a density audit before any analysis and a narrowing rule if platforms are too sparse.</div>
+      <div class="why">Review points 2 and 3 (zero-cell problem; anchor stability).</div></div>
+
+    <div class="chg"><h3>A sixth method step: show the cost</h3>
+      <div class="was">Five steps ending at equating.</div>
+      <div class="now">A sixth step simulates the naive pooled index against the measurement-adjusted one on the same events, making the consequence of ignoring platform effects visible rather than asserted.</div>
+      <div class="why">The reviewer's "demonstrate how dangerous unadjusted aggregation is" recommendation.</div></div>
+
+    <div class="chg"><h3>Reaction latency joins the model</h3>
+      <div class="was">Not addressed.</div>
+      <div class="now">Time-since-event enters the multilevel model; platform reaction speed is treated as part of the mode effect. Flagged as the main open methods question for the next supervision meeting.</div>
+      <div class="why">Review point 3.</div></div>
+
+    <div class="chg"><h3>Counts to be recomputed from raw data</h3>
+      <div class="was">Dissertation totals quoted as published (279k headline).</div>
+      <div class="now">All per-platform totals recomputed from raw data before analysis; the inconsistency (platform figures summing to ~395k) is disclosed in the limits section.</div>
+      <div class="why">Review point 5, checked against the dissertation text and found to run deeper.</div></div>
+
+    <div class="chg"><h3>Timeline corrected against the official call</h3>
+      <div class="was">"Aim for the September 2026 round."</div>
+      <div class="now">arXiv preprint by December 2026; poster (up to 5 pages) to ICWSM 2027 Round 3 on 15 January 2027; full paper to follow. The September round accepts full papers only, so the original target was not available for this format.</div>
+      <div class="why">Review point 9, verified on the ICWSM 2027 submission page.</div></div>
+
+    <div class="chg"><h3>Four platforms becomes "as many as the data supports"</h3>
+      <div class="was">Four platforms throughout.</div>
+      <div class="now">The audit decides: all four if dense enough, otherwise the dense subset; a two-platform comparison is the cleanest test and four was never load-bearing for the claim.</div>
+      <div class="why">Review points 2 and 4.</div></div>
+  </section>
+  </div><!-- /pane-changelog -->
+
   <footer class="foot">
     <div class="who">
       Asad Ikram
@@ -624,6 +770,19 @@
   // safety net: if the observer never fires (some embedded viewers), reveal anyway
   setTimeout(showAll, 1400);
   window.addEventListener('load', function(){ setTimeout(showAll, 400); });
+
+  // tabs (v2)
+  var btns = document.querySelectorAll('.tabbtn');
+  function openTab(name){
+    btns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab')===name); });
+    document.querySelectorAll('.tabpane').forEach(function(p){ p.classList.toggle('active', p.id==='pane-'+name); });
+    document.querySelectorAll('#pane-'+name+' .reveal').forEach(function(el){ el.classList.add('in'); });
+    if (history.replaceState) history.replaceState(null,'','#'+name);
+    window.scrollTo({top:0});
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ openTab(b.getAttribute('data-tab')); }); });
+  var h = (location.hash||'').replace('#','');
+  if (h==='review'||h==='changelog') openTab(h);
 </script>
 </body>
 </html>
