@@ -24,8 +24,7 @@ LLM annotations shift under changes of prompt wording alone.
 differently on different platforms. Classifiers are instruments, and
 instruments drift with their conditions of use.
 
-The gap is simple to state: when the labels are machine-produced, no
-one asks whether the platform is part of the measurement. When a
+The gap is simple to state: when the labels are machine-produced, the question whether the platform is part of the measurement is not asked with a formal test. When a
 classifier scores Reddit discussion of a budget more negative than
 tweets about the same budget, the difference is read as a fact about
 opinion. It could instead be a fact about the instrument. Character
@@ -45,13 +44,8 @@ telephone, on paper, and face to face; the field calls this a mode
 effect and does not treat cross-mode differences as substantive until
 measurement equivalence has been established
 \citep{tourangeau2000,klausch2013,hox2015}, within a total-error
-accounting of where distortions enter \citep{groves2010}. Our claim is
-that a platform is a mode. Affordances stand to posts as interview
-settings stand to answers, and the psychometric toolkit built for
-modes and groups, generalizability theory
-\citep{cronbach1972,brennan2001}, measurement invariance testing
-\citep{meredith1993,putnick2016}, and score linking \citep{kolen2014},
-transfers to machine-labelled constructs with the platform as the
+accounting of where distortions enter \citep{groves2010}. Our claim is that a platform is a mode. We use the analogy with care: absent random assignment of users to platforms or within-user cross-posting, the design identifies platform-level non-equivalence, a bundle of selection and measurement that Section~\ref{sec:limitations} unpacks, with mode as the leading interpretation rather than an established fact. Affordances stand to posts as interview
+settings stand to answers, and the psychometric toolkit built for modes and groups (generalizability theory \citep{cronbach1972,brennan2001}, measurement invariance testing \citep{meredith1993,putnick2016}, and score linking \citep{kolen2014}) transfers to machine-labelled constructs with the platform as the
 grouping facet. To our knowledge, no study has carried out that
 transfer: the toolkit has reached survey self-reports \citep{boyd2024},
 annotator facets \citep{kennedy2020,sachdeva2022}, and single-platform
@@ -77,9 +71,7 @@ This paper makes four contributions.
   \item We specify a six-step protocol: same-event divergence testing;
     a fixed-facet generalizability study with a human-validated
     criterion; categorical measurement invariance and differential item
-    functioning under effect-size criteria; multilevel decomposition of
-    platform effects, with reaction latency treated as part of the mode
-    effect; anchor-based score linking on pre-identified fiscal events,
+    functioning under effect-size criteria; multilevel decomposition of platform effects, with platform contrasts reported both with and without reaction latency; anchor-based score linking on pre-identified fiscal events,
     centred on the September 2022 mini-budget; and a simulation
     contrasting a naive pooled index with a measurement-adjusted one.
     All tests are replicated with a non-lexicon transformer, so only

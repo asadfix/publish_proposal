@@ -12,7 +12,7 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \paragraph{Invariance and DIF.} Categorical-indicator models with threshold constraints, judged on effect-size criteria rather than chi-square. Alongside the constrained models we run alignment \citep{muthen2018} and anchor-free DIF \citep{chen2023}, so no conclusion depends on a hand-picked anchor set.
 
-\paragraph{Classifier-artifact control.} The full test suite is replicated with a non-lexicon transformer. Only non-invariance convergent across both classifiers is interpreted as a platform mode effect \citep{czarnek2022}; divergent results are flagged as classifier artifacts.
+\paragraph{Classifier-artefact control.} The full test suite is replicated with a non-lexicon transformer. Only non-invariance convergent across both classifiers is interpreted as a platform mode effect \citep{czarnek2022}; divergent results are flagged as classifier artefacts.
 
 \paragraph{Linking sensitivity.} Leave-one-event-out re-estimation of linking constants over the pre-identified fiscal-event anchors, with the September 2022 mini-budget as centrepiece; both 48-hour and 2-week event windows; ex-ante anchor purification applied before, not after, estimation.
 
@@ -20,6 +20,24 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \paragraph{Annotation reliability.} Expansion of the human criterion sample from the dissertation's 200 balanced posts (Cohen's kappa approximately 0.78; dissertation p.~28) to \todo{1,000-1,500} probability-sampled posts with a second-annotator subset; agreement \todo{kappa}.
 
+\section{Dissertation-Stage Diagnostic Outputs}
+
+The dissertation-stage per-class diagnostics are reproduced here in their original form, as archival evidence of the instrument as it stood; they are console outputs rather than typeset figures and will be regenerated, with the corrected reliability diagrams, in the recomputation. \todo{Regeneration checklist: transcribe both console reports into one typeset table noting the VADER-seeded reference labels; identical category order across paired figures; rename LSTM to BiLSTM; legends in plain English, placed outside the axes; sequential palette for unsigned rates; axes limited to the data range; state the Prophet interval level; vector output, no screenshot borders.} Both classifiers struggled most with the neutral class, the pattern the expanded criterion sample is designed to measure properly.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.72\linewidth]{fig_confusion_bert}
+\caption{Dissertation-stage per-class report and confusion matrix, fine-tuned BERT (dissertation Figure~7.1, p.~36). Class supports total 255,446; the reference labels are the VADER-seeded corpus labels, so these diagnostics measure agreement with the seed lexicon, not accuracy against the human criterion.}
+\label{fig:confbert}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.72\linewidth]{fig_confusion_bilstm}
+\caption{Dissertation-stage per-class report and confusion matrix, BiLSTM (dissertation Figure~7.2, p.~36). The reference labels are again the VADER-seeded corpus labels, not the human criterion.}
+\label{fig:confbilstm}
+\end{figure}
+
 \section{Data and Code Availability}
 
-Code, configuration, training details (splits, hyperparameters, seeds), annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artifacts contain no personal data. Compute used: a single NVIDIA T4 GPU (16\,GB) on Google Colab Pro for the dissertation-stage models (dissertation p.~19); \todo{GPU hours, and hardware for the recomputation}. Together with the completed ICWSM checklist placed after the references, this covers the reproducibility items for ML experiments and data assets.
+Code, configuration, training details (splits, hyperparameters, seeds), annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artefacts contain no personal data. Compute used: a single NVIDIA T4 GPU (16\,GB) on Google Colab Pro for the dissertation-stage models (dissertation p.~19); \todo{GPU hours, and hardware for the recomputation}. Together with the completed ICWSM checklist placed after the references, this covers the reproducibility items for ML experiments and data assets.
