@@ -323,7 +323,7 @@
 
   <div class="meta">
     <div class="tag">Paper plan &middot; revised after review</div>
-    <div>For Dr Ella Haig and Eni &middot; v2, 21 Aug 2026</div>
+    <div>For Dr Ella Haig and Eni &middot; v2.1, 21 Aug 2026 &middot; stress-tested against the 2023-2026 literature</div>
   </div>
 
   <nav class="tabbar" aria-label="Views">
@@ -407,7 +407,7 @@
       </div>
       <div class="uniq">
         <div class="ul">How this is unique</div>
-        <p>Each piece exists on its own. What I cannot find anywhere is the combination: <b>measurement-equivalence tools, applied to machine-labelled sentiment, compared across two or more platforms, with the platform itself as the thing being tested.</b> The nearest work each stops one step short, survey self-report rather than model-labelled text (<a href="https://doi.org/10.1371/journal.pone.0300356" target="_blank">Boyd et al. 2024</a>), annotators rather than platforms (<a href="https://doi.org/10.1145/3531146.3533216" target="_blank">Sachdeva et al. 2022</a>), or correlation rather than equating (<a href="https://doi.org/10.1038/s41598-022-14579-y" target="_blank">Pellert et al. 2022</a>).</p>
+        <p>Each piece exists on its own. What I cannot find anywhere is the combination: <b>measurement-equivalence tools, applied to machine-labelled sentiment, compared across two or more platforms, with the platform itself as the thing being tested.</b> The nearest work each stops one step short, survey self-report rather than model-labelled text (<a href="https://doi.org/10.1371/journal.pone.0300356" target="_blank">Boyd et al. 2024</a>), annotators rather than platforms (<a href="https://doi.org/10.1145/3531146.3533216" target="_blank">Sachdeva et al. 2022</a>), or correlation rather than equating (<a href="https://doi.org/10.1038/s41598-022-14579-y" target="_blank">Pellert et al. 2022</a>). An adversarial literature sweep in August 2026 confirmed the combination is still unoccupied, and added two fresh neighbours that each stop one step short in a new way: <a href="https://link.springer.com/article/10.1140/epjds/s13688-026-00654-1" target="_blank">Pokropek 2026</a> brings full CFA invariance testing to text measures, but on one platform with time, not platform, as the grouping; and generalizability theory has now reached <a href="https://arxiv.org/abs/2601.02370" target="_blank">LLM-annotation facets</a> (prompt, model, extraction), still not the platform facet. One sharpening worth stating plainly: the Kennedy et al. corpus does span Reddit, YouTube and Twitter, but its modelled facets are items and annotators; platform remains an unmodelled sampling stratum.</p>
       </div>
       <p class="honest">To be clear about what is mine: the split between how it is measured and who posts is not mine to claim. Survey work drew it first (<a href="https://doi.org/10.1093/poq/nfab018" target="_blank">Sen et al.</a>, <a href="https://doi.org/10.1093/poq/nfv048" target="_blank">Schober et al.</a>). The closest adjacent use of the toolkit is <a href="https://doi.org/10.1177/08944393241254464" target="_blank">Cernat et al. 2025</a>, who run a multitrait-multimethod model treating survey and digital-trace data as different methods, though not across social platforms and not on sentiment. What is new is bringing the full toolkit onto the platform itself, for machine-labelled sentiment across platforms. I am not claiming to recover a "true" opinion, only a comparable one.</p>
       <div class="deliv-h"><span class="dot"></span>What the contribution delivers</div>
@@ -475,6 +475,20 @@
       <div class="fconn"></div>
       <div class="fnode"><div class="fn">6</div><div class="ft"><span class="stage">Demonstrate</span><b>Show the cost</b> of ignoring the platform <span class="ftag">added after review</span><span class="sub">simulate the naive approach: pool all platforms into one sentiment index and compare it with the measurement-adjusted version on the same fiscal events. Where the naive index misreads the timing or severity of public reaction, the danger of unadjusted aggregation becomes concrete rather than claimed</span></div></div>
     </div>
+    <div class="priorbox" style="margin-top:26px">
+      <div class="ph">Design safeguards, added after an adversarial methods review</div>
+      <div class="pintro">Each of these preempts a specific, citable objection a quantitative reviewer would raise:</div>
+      <ul>
+        <li><b>Platform is a fixed facet.</b> Two to four named platforms are neither random nor exchangeable, so the G-study treats platform as fixed (posts, events and coders as random), and every conclusion is scoped to the studied platforms rather than "platforms in general".</li>
+        <li><b>Categorical indicators, effect-size criteria.</b> NRC emotion components are sparse count indicators, so invariance is tested in categorical-indicator models (threshold, not intercept, invariance), judged by effect sizes rather than chi-square p-values, which are uninterpretable at social-media sample sizes.</li>
+        <li><b>The lexicon-artifact control.</b> Apparent platform non-invariance could be dictionary coverage (slang, length norms) rather than a mode effect (<a href="https://doi.org/10.1371/journal.pone.0275910" target="_blank">Ludwig et al. 2022</a>). Every equivalence test is therefore replicated with a second, non-lexicon measure (the fine-tuned transformer); only convergent non-invariance is interpreted as a mode effect, and disagreement is reported as instrument artifact.</li>
+        <li><b>Anchors are purified, and linking is the honest word.</b> Anchor items with their own DIF contaminate everything downstream, so anchors are purified ex ante, an anchor-free DIF estimator (<a href="https://doi.org/10.1007/s11336-023-09930-9" target="_blank">Chen et al. 2023</a>) runs as robustness, step 5 is described as linking rather than full equating, and a leave-one-event-out sensitivity check guards the fiscal-event anchors.</li>
+        <li><b>Invariance is diagnostic, not a licence.</b> The methods literature is currently debating whether passing invariance is either necessary or sufficient for valid comparison (<a href="https://doi.org/10.1080/10705511.2023.2191292" target="_blank">Robitzsch &amp; L&uuml;dtke 2023</a>). Results here feed the naive-versus-adjusted simulation as evidence, rather than acting as a binary gate, and alignment estimation (<a href="https://doi.org/10.1177/0049124117701488" target="_blank">Muth&eacute;n &amp; Asparouhov 2018</a>) runs alongside the exact sequence.</li>
+        <li><b>The gold set is probability-sampled.</b> The 1,000 to 1,500 human labels are drawn with known sampling probabilities, stratified by platform and event, so design-based correction of the multilevel estimates (<a href="https://arxiv.org/abs/2306.04746" target="_blank">Egami et al. 2023</a>) comes free with the yardstick.</li>
+        <li><b>Nesting is respected.</b> Posts sit inside events, so invariance is examined in a two-level framework (<a href="https://doi.org/10.1080/10705511.2013.769392" target="_blank">Jak et al. 2013</a>), separating within-event platform non-equivalence from between-event composition differences.</li>
+      </ul>
+      <div class="pclose">The survey-mode literature already runs mode-as-group DIF on web versus paper questionnaires; this design carries that precedent to platforms as the modes and machine labels as the indicators.</div>
+    </div>
   </section>
 
   <!-- TWO BIASES -->
@@ -492,7 +506,7 @@
       <div class="bias ours">
         <div class="lab"><span class="spark"></span>What I work on</div>
         <h3>How it is measured</h3>
-        <p>Observations suggest that even when the opinion is the same, each platform records it differently. Re-weighting cannot fix that. The method below is designed to test whether this is true, then measure and ideally correct it.</p>
+        <p>Observations suggest that even when the opinion is the same, each platform records it differently. Re-weighting cannot fix that, and neither can the new label-error corrections: methods now exist to fix classifier error in downstream estimates (<a href="https://arxiv.org/abs/2306.04746" target="_blank">Egami et al. 2023</a>) and to quantify how model choice flips conclusions (<a href="https://arxiv.org/abs/2509.08825" target="_blank">Baumann et al. 2025</a>), but they treat the label, not the mode. The method below is designed to test whether platform non-equivalence is real, then measure and ideally correct it.</p>
         <div class="src"><a href="https://doi.org/10.1093/poq/nfab018" target="_blank">framing from Sen et al. 2021 &#8599;</a></div>
       </div>
     </div>
@@ -505,7 +519,8 @@
     <p>ICWSM has a long line of work asking whether social media data faithfully measures public opinion. This paper is a direct continuation of it, moving the question from "is the sample representative" to "is the measurement equivalent."</p>
     <div class="fitbox">
       <p><b>Tufekci (2014)</b> set out the validity and representativeness problems of social media big data at ICWSM, including the field's over-reliance on a single platform. <b>Morstatter et al. (2013)</b> asked whether the data you pull even represents the platform it comes from. <b>Cohen and Ruths (2013)</b> showed that attitude inference from social media had been systematically over-reported because validation samples were skewed. <b>O'Connor et al. (2010)</b> linked text sentiment to opinion series, but treated platform noise as something that averages out.</p>
-      <p>These are about who is in the data, how it is sampled, and whether inferred labels can be trusted. None asks whether the same opinion is recorded equivalently across platforms once a model has labelled it. That measurement-equivalence question is what I add, with psychometric tools the community has not yet applied to machine-labelled cross-platform sentiment. That is the fit: the same long-standing ICWSM concern, carried to the next unexamined source of error.</p>
+      <p>These are about who is in the data, how it is sampled, and whether inferred labels can be trusted. The same line runs straight through the newest proceedings. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35841" target="_blank">Greene et al. (2025)</a> show the same politicians read ideologically different on Twitter and Facebook and warn against single-platform designs. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35807" target="_blank">Atreja et al. (2025)</a> show LLM labels shift with model and prompt choice, so the labelling instrument itself is unstable. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35876" target="_blank">Nogara et al. (2025)</a> catch a single classifier scoring identical content as more toxic in German than in English: instrument non-equivalence across languages, documented. And cross-platform machine-labelled comparisons are being published right now with equivalence assumed rather than tested, from affective polarization on Facebook and Twitter (<a href="https://ojs.aaai.org/index.php/ICWSM/article/view/31380" target="_blank">Overgaard et al. 2024</a>) to sentiment on Douyin versus TikTok (<a href="https://ojs.aaai.org/index.php/ICWSM/article/view/42760" target="_blank">Wei et al. 2026</a>), while post-API data access makes multi-platform corpora ever more heterogeneous (<a href="https://ojs.aaai.org/index.php/ICWSM/article/view/42671" target="_blank">Goanta et al. 2026</a>; <a href="https://doi.org/10.1038/s41562-023-01750-2" target="_blank">Davidson et al. 2023</a>).</p>
+      <p>None of it asks whether the same opinion is recorded equivalently across platforms once a model has labelled it. What Nogara and colleagues show for language, this paper tests for platform, with formal psychometric tools rather than ad hoc comparison. That is the fit: the same long-standing ICWSM concern, carried to the next unexamined source of error.</p>
     </div>
   </section>
 
@@ -580,7 +595,7 @@
   <!-- CLAIM -->
   <section class="reveal">
     <div class="claim">
-      <p>"To my knowledge, I am the first to treat each platform as a measurement mode and apply the psychometric equivalence-and-equating toolkit to machine-classified policy sentiment, <b>testing whether platform differences reflect genuine attitudinal divergence or mode-induced measurement non-equivalence</b>, and reporting where cross-platform comparison is and is not justified."</p>
+      <p>"To my knowledge, I am the first to treat each platform as a measurement mode and apply the psychometric equivalence-and-equating toolkit to machine-classified policy sentiment, with the platform itself as the grouping facet, <b>testing whether platform differences reflect genuine attitudinal divergence or mode-induced measurement non-equivalence</b>, and reporting where cross-platform comparison is and is not justified."</p>
     </div>
   </section>
 
@@ -637,6 +652,23 @@
         <li>Han, S., &amp; Anderson, C. K. (2025/2026). <b>The platform matters: selection and measurement bias in online reviews</b>. <i>Cornell Hospitality Quarterly</i>, 67(1), 24-41 (first published online 2025). <a href="https://doi.org/10.1177/19389655251327536" target="_blank">doi.org/10.1177/19389655251327536</a></li>
         <li>Wang, W., Rothschild, D., Goel, S., &amp; Gelman, A. (2015). <b>Forecasting elections with non-representative polls</b>. <i>International Journal of Forecasting</i>, 31(3), 980-991. <a href="https://doi.org/10.1016/j.ijforecast.2014.06.001" target="_blank">doi.org/10.1016/j.ijforecast.2014.06.001</a></li>
       </ol>
+      <div class="grp">Added in v2.1, after the August 2026 adversarial literature sweep</div>
+      <ol>
+        <li>Pokropek, A. (2026). <b>From keyword-based text measures to latent variables: confirmatory factor analysis with word embeddings</b>. <i>EPJ Data Science</i>, 15:51. <a href="https://link.springer.com/article/10.1140/epjds/s13688-026-00654-1" target="_blank">link.springer.com</a> (nearest new neighbour: CFA invariance on text, but one platform and time as the grouping)</li>
+        <li>Greene, K., DeVerna, M., Tucker, J., &amp; Buntain, C. (2025). <b>Hot Tweets and Cold Posts: variation in US Congresspeople's ideological presentation on Twitter and Facebook over time</b>. <i>ICWSM 2025</i>, 19. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35841" target="_blank">ojs.aaai.org</a></li>
+        <li>Atreja, S., Ashkinaze, J., Li, L., Mendelsohn, J., &amp; Hemphill, L. (2025). <b>What's in a prompt? Assessing the impact of prompt design on LLM-generated text annotations</b>. <i>ICWSM 2025</i>, 19. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35807" target="_blank">ojs.aaai.org</a></li>
+        <li>Nogara, G., Pierri, F., Cresci, S., Luceri, L., T&ouml;rnberg, P., &amp; Giordano, S. (2025). <b>Toxic bias: Perspective API misreads German as more toxic</b>. <i>ICWSM 2025</i>, 19. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35876" target="_blank">ojs.aaai.org</a></li>
+        <li>Overgaard, C. S. M. B., Lukito, J., &amp; Soorholtz, K. (2024). <b>The manifestation of affective polarization on social media: a cross-platform supervised machine learning approach</b>. <i>ICWSM 2024</i>, 18. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/31380" target="_blank">ojs.aaai.org</a></li>
+        <li>Wei, R., Li, X., Liao, Q., Yang, T., Yang, X., Xie, W., Hui, P., &amp; Qu, H. (2026). <b>Cross-platform short-video diplomacy: topic and sentiment analysis of China-US relations on Douyin and TikTok</b>. <i>ICWSM 2026</i>, 20. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/42760" target="_blank">ojs.aaai.org</a></li>
+        <li>Goanta, C., Zannettou, S., et al. (2026). <b>The great data standoff: researchers vs. platforms under the Digital Services Act</b>. <i>ICWSM 2026</i>, 20. <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/42671" target="_blank">ojs.aaai.org</a></li>
+        <li>Davidson, B. I., et al. (2023). <b>Platform-controlled social media APIs threaten open science</b>. <i>Nature Human Behaviour</i>, 7, 2038-2041. <a href="https://doi.org/10.1038/s41562-023-01750-2" target="_blank">doi.org/10.1038/s41562-023-01750-2</a></li>
+        <li>Halterman, A., &amp; Keith, K. A. (2025). <b>Codebook LLMs: evaluating LLMs as measurement tools for political science concepts</b>. <i>Political Analysis</i>. <a href="https://doi.org/10.1017/pan.2025.10" target="_blank">doi.org/10.1017/pan.2025.10</a></li>
+        <li>Baumann, J., et al. (2025). <b>Large language model hacking: quantifying the hidden risks of using LLMs for text annotation</b>. arXiv:2509.08825. <a href="https://arxiv.org/abs/2509.08825" target="_blank">arxiv.org/abs/2509.08825</a></li>
+        <li>Ludwig, K., et al. (2022). <b>Two is better than one: using a single emotion lexicon can lead to unreliable conclusions</b>. <i>PLOS ONE</i>, 17(10), e0275910. <a href="https://doi.org/10.1371/journal.pone.0275910" target="_blank">doi.org/10.1371/journal.pone.0275910</a></li>
+        <li>Robitzsch, A., &amp; L&uuml;dtke, O. (2023). <b>Why full, partial, or approximate measurement invariance are not a prerequisite for meaningful and valid group comparisons</b>. <i>Structural Equation Modeling</i>, 30(6). <a href="https://doi.org/10.1080/10705511.2023.2191292" target="_blank">doi.org/10.1080/10705511.2023.2191292</a></li>
+        <li>Muth&eacute;n, B., &amp; Asparouhov, T. (2018). <b>Recent methods for the study of measurement invariance with many groups: alignment and random effects</b>. <i>Sociological Methods &amp; Research</i>, 47(4). <a href="https://doi.org/10.1177/0049124117701488" target="_blank">doi.org/10.1177/0049124117701488</a></li>
+        <li>Jak, S., Oort, F. J., &amp; Dolan, C. V. (2013). <b>A test for cluster bias: detecting violations of measurement invariance across clusters in multilevel data</b>. <i>Structural Equation Modeling</i>, 20(2). <a href="https://doi.org/10.1080/10705511.2013.769392" target="_blank">doi.org/10.1080/10705511.2013.769392</a></li>
+      </ol>
     </div>
   </section>
 
@@ -649,7 +681,7 @@
     <div class="kicker">Independent review, August 2026</div>
     <h2>What the reviewer said, and what we did about it</h2>
     <p>Dr Haig asked Eni, a colleague with ICWSM experience, to pressure-test this brief. She ran a five-part critique (assisted by her institution's enterprise AI tools) against the brief and the dissertation itself. Every substantive point is listed below with its answer. Nothing is hidden: two points changed the plan materially, several were accepted outright, and two get a reasoned pushback.</p>
-    <div class="verdictbox">The reviewer's overall verdict: the conceptual framing is <q>rock solid</q> and the contribution is <q>a textbook definition of a meaningful academic contribution</q>. The problems are all about the data, not the idea. The revised plan below is the answer to exactly that.</div>
+    <div class="verdictbox">The reviewer's overall verdict: the conceptual framing is <q>rock solid</q> and the contribution is <q>a textbook definition of a meaningful academic contribution</q>. The problems are all about the data, not the idea. The revised plan below is the answer to exactly that. <b>Update, 21 August:</b> an adversarial literature sweep (an arXiv API scan of every paper mentioning the core psychometric terms, plus the ICWSM 2024-2026 proceedings and the usual indexes) re-tested the novelty claim against 2023-2026 work. It survived; the nearest new neighbours and the resulting hardening are recorded in the change log.</div>
 
     <div class="qa"><div class="qh"><h3>1. The validation set is too small</h3><span class="verdict v-accept">accepted, and extended</span></div>
       <div class="concern">200 hand-labelled posts cannot anchor a generalizability or DIF analysis over 279,000; expand to roughly 1,000 to 1,500, evenly split across platforms.</div>
@@ -693,7 +725,7 @@
   <span class="pane-note">Part 3 &middot; Change log</span>
 
   <section class="sec reveal in">
-    <div class="kicker">v1 (July 2026) to v2 (21 August 2026)</div>
+    <div class="kicker">v1 (July 2026) to v2 and v2.1 (21 August 2026)</div>
     <h2>What changed from the original plan</h2>
     <p>Every material change from the original brief, with what prompted it. The original claim, the five-step core of the method, the honesty about limits and the reference library are unchanged; the review made the plan around them concrete.</p>
 
@@ -736,6 +768,21 @@
       <div class="was">Four platforms throughout.</div>
       <div class="now">The audit decides: all four if dense enough, otherwise the dense subset; a two-platform comparison is the cleanest test and four was never load-bearing for the claim.</div>
       <div class="why">Review points 2 and 4.</div></div>
+
+    <div class="chg"><h3>v2.1: the novelty claim was attacked, and survived</h3>
+      <div class="was">"As far as I can find, no one has done this", checked by hand up to July 2026.</div>
+      <div class="now">An adversarial sweep (21 August 2026) scanned every arXiv paper mentioning measurement invariance, test equating, generalizability theory, DIF, MTMM, mode effects and IRT, plus the ICWSM 2024-2026 proceedings, ACL Anthology, OSF/SSRN and indexed venues. Zero papers combine machine-classified sentiment, multiple platforms, a formal psychometric method, and platform as the tested facet. The claim now names its two newest neighbours (Pokropek 2026; G-theory reaching LLM-annotation facets) and is tightened to "with the platform itself as the grouping facet".</div>
+      <div class="why">Pre-submission due diligence; the sweep is repeatable before the arXiv posting.</div></div>
+
+    <div class="chg"><h3>v2.1: seven design safeguards added to the method</h3>
+      <div class="was">The six steps stated without defensive detail.</div>
+      <div class="now">A safeguards box preempts the citable objections a quantitative reviewer would raise: platform as a fixed facet; categorical-indicator invariance judged by effect sizes; a second non-lexicon classifier so dictionary artifacts cannot masquerade as mode effects; anchor purification, anchor-free DIF and "linking" language; invariance treated as diagnostic evidence rather than a licence; a probability-sampled gold set enabling design-based correction; and two-level invariance respecting posts-in-events nesting.</div>
+      <div class="why">Methods-literature attack (Robitzsch and Ludtke 2023; Ludwig et al. 2022; Chen et al. 2023; Jak et al. 2013; Muthen and Asparouhov 2018).</div></div>
+
+    <div class="chg"><h3>v2.1: the ICWSM fit section joins 2026</h3>
+      <div class="was">The fit argument rested on four classics from 2010-2014.</div>
+      <div class="now">The classics stay, now paired with the current proceedings: Greene et al. 2025 (same actors read differently across platforms), Atreja et al. 2025 (LLM labels unstable across prompts), Nogara et al. 2025 (one classifier, two languages, different scores: instrument non-equivalence documented), Overgaard et al. 2024 and Wei et al. 2026 (cross-platform ML comparisons published with equivalence assumed), Goanta et al. 2026 and Davidson et al. 2023 (post-API heterogeneity). Fourteen references added in a dedicated group.</div>
+      <div class="why">The fit case is stronger when the unexamined assumption is shown operating in the newest proceedings, not only the founding ones.</div></div>
   </section>
   </div><!-- /pane-changelog -->
 
