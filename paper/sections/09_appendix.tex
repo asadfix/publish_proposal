@@ -12,14 +12,14 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \paragraph{Invariance and DIF.} Categorical-indicator models with threshold constraints, judged on effect-size criteria rather than chi-square. Alongside the constrained models we run alignment \citep{muthen2018} and anchor-free DIF \citep{chen2023}, so no conclusion depends on a hand-picked anchor set.
 
-\paragraph{Classifier-artifact control.} The full test suite is replicated with a non-lexicon transformer. Only non-invariance convergent across both classifiers is interpreted as a platform mode effect \citep{ludwig2022}; divergent results are flagged as classifier artifacts.
+\paragraph{Classifier-artifact control.} The full test suite is replicated with a non-lexicon transformer. Only non-invariance convergent across both classifiers is interpreted as a platform mode effect \citep{czarnek2022}; divergent results are flagged as classifier artifacts.
 
 \paragraph{Linking sensitivity.} Leave-one-event-out re-estimation of linking constants over the pre-identified fiscal-event anchors, with the September 2022 mini-budget as centrepiece; both 48-hour and 2-week event windows; ex-ante anchor purification applied before, not after, estimation.
 
 \paragraph{Uncertainty and calibration.} Bootstrap confidence intervals on all indices; McNemar tests for classifier comparisons; temperature-scaled calibration checked per platform.
 
-\paragraph{Annotation reliability.} Expansion of the human criterion sample to \todo{1,000-1,500} probability-sampled posts with a second-annotator subset; agreement \todo{kappa}.
+\paragraph{Annotation reliability.} Expansion of the human criterion sample from the dissertation's 200 balanced posts (Cohen's kappa approximately 0.78; dissertation p.~28) to \todo{1,000-1,500} probability-sampled posts with a second-annotator subset; agreement \todo{kappa}.
 
 \section{Data and Code Availability}
 
-Code, configuration, training details (splits, hyperparameters, seeds), annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artifacts contain no personal data. Compute used: \todo{hardware and GPU hours}. Together with the completed ICWSM checklist placed after the references, this covers the reproducibility items for ML experiments and data assets.
+Code, configuration, training details (splits, hyperparameters, seeds), annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artifacts contain no personal data. Compute used: a single NVIDIA T4 GPU (16\,GB) on Google Colab Pro for the dissertation-stage models (dissertation p.~19); \todo{GPU hours, and hardware for the recomputation}. Together with the completed ICWSM checklist placed after the references, this covers the reproducibility items for ML experiments and data assets.

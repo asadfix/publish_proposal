@@ -31,7 +31,7 @@ tweets about the same budget, the difference is read as a fact about
 opinion. It could instead be a fact about the instrument. Character
 limits, anonymity, threading, moderation, and audience shape how the
 same attitude is expressed, and therefore how it is scored.
-\citet{sen2021} name exactly this hazard, platform affordance error,
+\citet{sen2021} name exactly this hazard, platform-affordance error,
 in their total error framework for digital traces, but they provide no
 formal test for it. Recent correction methods repair label error
 against a human gold standard \citep{egami2023} and probe the
@@ -70,7 +70,7 @@ term that nobody has sized.
 
 This paper makes four contributions.
 \begin{enumerate}
-  \item We formalize the platform-as-mode question for machine-labelled
+  \item We formalise the platform-as-mode question for machine-labelled
     constructs and give, to our knowledge, the first application of the
     psychometric equivalence toolkit to machine-classified policy
     sentiment with platform as the grouping facet.
@@ -84,14 +84,19 @@ This paper makes four contributions.
     contrasting a naive pooled index with a measurement-adjusted one.
     All tests are replicated with a non-lexicon transformer, so only
     convergent non-invariance is read as a mode effect
-    \citep{ludwig2022}, and invariance results are treated as
+    \citep{czarnek2022}, and invariance results are treated as
     diagnostic evidence rather than a licence to pool
     \citep{robitzsch2023}.
   \item We apply the protocol to \todo{approximately 279{,}000 posts;
-    confirm per-platform totals after recount} about UK economic policy
-    on Twitter/X, Reddit, YouTube, and Quora between 2018 and 2025,
-    labelled by a fine-tuned BERT classifier and validated against a
-    probability-sampled human-annotated criterion.
+    confirm per-platform totals and the collection window after
+    recount: Ch5 platform sums reach roughly 395,000 (pp. 21-24)
+    against the 279,000 headline (p. 25), and the Ch7 figures classify
+    255,446 items (p. 36)} about UK economic policy on Twitter/X,
+    Reddit, YouTube, and Quora, labelled by a fine-tuned BERT
+    classifier and validated against a probability-sampled
+    human-annotated criterion \todo{to be drawn; the
+    dissertation-stage criterion was 200 balanced posts, kappa
+    approximately 0.78}.
   \item \blocked{Empirical findings: whether, where, and by how much
     cross-platform equivalence fails, and what the naive-versus-adjusted
     contrast implies for pooled indices.}
