@@ -329,7 +329,8 @@
   <nav class="tabbar" aria-label="Views">
     <button class="tabbtn active" data-tab="proposal">The proposal <span class="tsub">updated</span></button>
     <button class="tabbtn" data-tab="review">The review, answered <span class="tsub">9 points</span></button>
-    <button class="tabbtn" data-tab="changelog">Change log <span class="tsub">v1 to v2</span></button>
+    <button class="tabbtn" data-tab="changelog">Change log <span class="tsub">v1 to v2.1</span></button>
+    <button class="tabbtn" data-tab="paper">The arXiv paper <span class="tsub">structure &amp; draft</span></button>
   </nav>
 
   <div class="tabpane active" id="pane-proposal">
@@ -587,6 +588,7 @@
         <li><b>It is observational, and this is the biggest caveat.</b> The same event draws different people and different sub-topics on each platform, so what I put down to the platform is an upper bound until I can follow the same users across platforms. I keep that front and centre.</li>
         <li><b>It is these four platforms, or fewer.</b> The findings are about them, not every platform, and if the anchor-density audit shows some platforms too sparse, the comparison narrows to the dense ones rather than stretching thin data.</li>
         <li><b>The counts are being recomputed.</b> The dissertation per-platform figures are internally inconsistent (they sum to roughly 395k against the 279k headline), so every count in the paper will be recomputed from the raw data before analysis. Better that we report this than a reviewer finds it.</li>
+        <li><b>Known errata in the linked dissertation.</b> A final self-audit found five internal inconsistencies a careful reader may notice: Figure 7.5 is mislabelled "Facebook" (Facebook was excluded); the Prophet MAE appears as ~0.02 in Chapter 7 but ~0.05 in Table 8.1; the post-calibration ECE appears as 0.03 in Chapter 7 but 0.05 in Chapter 6; the manual-labelling coverage appears as 0.07% in Section 5.5 but ~0.5% in Section 7.4; and the conclusion rounds accuracy to ~0.89 against Table 7.1's 88.06%. The dissertation is the awarded record and stands as submitted; the paper recomputes and supersedes every affected figure.</li>
         <li><b>The fix needs a real test.</b> Lining the platforms up is step one. Checking whether mode-adjusted sentiment tracks a UK opinion series (British Social Attitudes, British Election Study, or YouGov economic trackers) would come later, but the contribution does not depend on it.</li>
       </ul>
     </div>
@@ -783,8 +785,55 @@
       <div class="was">The fit argument rested on four classics from 2010-2014.</div>
       <div class="now">The classics stay, now paired with the current proceedings: Greene et al. 2025 (same actors read differently across platforms), Atreja et al. 2025 (LLM labels unstable across prompts), Nogara et al. 2025 (one classifier, two languages, different scores: instrument non-equivalence documented), Overgaard et al. 2024 and Wei et al. 2026 (cross-platform ML comparisons published with equivalence assumed), Goanta et al. 2026 and Davidson et al. 2023 (post-API heterogeneity). Fourteen references added in a dedicated group.</div>
       <div class="why">The fit case is stronger when the unexamined assumption is shown operating in the newest proceedings, not only the founding ones.</div></div>
+
+    <div class="chg"><h3>v2.1: dissertation errata disclosed, and the paper gets a skeleton</h3>
+      <div class="was">The dissertation linked without comment; the paper existed as a plan.</div>
+      <div class="now">A final self-audit lists five internal inconsistencies in the awarded dissertation (limits section), all superseded by recomputation in the paper. A fourth tab now shows the arXiv paper structure section by section with honest status, and the LaTeX skeleton lives in the repository's paper folder for Overleaf import.</div>
+      <div class="why">A reviewer reading the linked PDF should meet our disclosure before their discovery.</div></div>
   </section>
   </div><!-- /pane-changelog -->
+
+  <div class="tabpane" id="pane-paper">
+  <span class="pane-note">Part 4 &middot; The arXiv paper</span>
+
+  <section class="sec reveal in">
+    <div class="kicker">From plan to preprint</div>
+    <h2>The paper, section by section</h2>
+    <p>The final structure for the arXiv submission, following the plan as accepted: measurement-methods framing, six-step method, mini-budget centrepiece, poster to ICWSM 2027 Round 3 after the preprint. The LaTeX skeleton lives in <a href="https://github.com/asadfix/publish_proposal/tree/main/paper" target="_blank">the paper folder of this repository</a>, ready to import into Overleaf (New Project, Import from GitHub), so co-editing runs through git. Target: arXiv cs.SI (cross-listed cs.CL), December 2026; a condensed 5-page version then goes to the ICWSM poster round on 15 January 2027.</p>
+    <div class="verdictbox"><b>Working title:</b> "Is the Platform Part of the Measurement? Testing Cross-Platform Equivalence of Machine-Labelled Policy Sentiment". Status: skeleton and settled prose drafted; every results section is gated on the anchor-density audit and the expanded annotation, by design.</div>
+
+    <div class="chg"><h3>1 &middot; Abstract <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">abstract.tex &middot; ~200 words</span></h3>
+      <div class="now">Drafted from the one-sentence claim: platforms as survey modes, the equivalence toolkit on machine-labelled sentiment, where comparison is and is not justified, and what the naive index gets wrong.</div>
+      <div class="why">Status: first draft written</div></div>
+    <div class="chg"><h3>2 &middot; Introduction <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">01_intro.tex &middot; ~1 page</span></h3>
+      <div class="now">The gap as it stands in 2026: cross-platform machine-labelled comparisons are being published with equivalence assumed (Overgaard 2024; Wei 2026) while instrument non-equivalence is documented across languages (Nogara 2025); contribution list mirrors the four cards on the proposal tab.</div>
+      <div class="why">Status: first draft written</div></div>
+    <div class="chg"><h3>3 &middot; Related work <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">02_related.tex &middot; ~1 page</span></h3>
+      <div class="now">Four strands, straight from the reference library: survey mode effects; measurement for ML and text; cross-platform studies and their assumed equivalence; the psychometric toolkit and its nearest misses (Boyd, Sachdeva/Kennedy, Pellert, Cernat, Han and Anderson, Pokropek).</div>
+      <div class="why">Status: first draft written</div></div>
+    <div class="chg"><h3>4 &middot; Data <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">03_data.tex &middot; ~1 page</span></h3>
+      <div class="now">Recounted corpus; the anchor-event table (5 to 10 fiscal shocks, 48-hour and two-week windows) with the density audit as Table 1; the probability-sampled 1,000-1,500 gold set with second-annotator agreement; ethics and GDPR handling.</div>
+      <div class="why">Status: blocked on the audit and annotation, template ready</div></div>
+    <div class="chg"><h3>5 &middot; Establishing the divergence <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">04_divergence.tex &middot; ~0.75 page</span></h3>
+      <div class="now">Same-event, topic-controlled comparison establishing that the divergence is real before any measurement machinery runs.</div>
+      <div class="why">Status: awaits audit output</div></div>
+    <div class="chg"><h3>6 &middot; The measurement framework <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">05_framework.tex &middot; ~1.5 pages</span></h3>
+      <div class="now">Fixed-facet G-study; categorical-indicator invariance with effect-size criteria; anchor-free DIF as robustness; the multilevel model with time-since-event; the seven safeguards folded in as design statements, not afterthoughts.</div>
+      <div class="why">Status: methods prose drafted, results pending</div></div>
+    <div class="chg"><h3>7 &middot; Linking platforms <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">06_linking.tex &middot; ~0.75 page</span></h3>
+      <div class="now">Fiscal-event anchors after purification, leave-one-event-out sensitivity, and the honest fork: one comparable scale, or a documented verdict that comparison is not justified.</div>
+      <div class="why">Status: awaits framework results</div></div>
+    <div class="chg"><h3>8 &middot; The cost of ignoring the platform <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">07_cost.tex &middot; ~0.75 page</span></h3>
+      <div class="now">Naive pooled index versus measurement-adjusted index on the same events; where timing or severity is misread, the practical stakes become the closing figure of the paper.</div>
+      <div class="why">Status: simulation design specified</div></div>
+    <div class="chg"><h3>9 &middot; Limitations, ethics, conclusion <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">08_limits.tex &middot; ~0.75 page</span></h3>
+      <div class="now">The upper-bound confound, platform scope, sentiment-vs-support, the dissertation errata superseded by recomputation, and external validation named as future work (British Social Attitudes, British Election Study, YouGov trackers).</div>
+      <div class="why">Status: first draft written</div></div>
+    <div class="chg"><h3>Appendix <span style="font-weight:400;font-size:13px;color:var(--ink-faint)">09_appendix.tex</span></h3>
+      <div class="now">Robustness battery: alignment estimation, two-level invariance, lexicon-versus-transformer convergence table, anchor purification details, annotation codebook.</div>
+      <div class="why">Status: outline only</div></div>
+  </section>
+  </div><!-- /pane-paper -->
 
   <footer class="foot">
     <div class="who">
@@ -829,7 +878,7 @@
   }
   btns.forEach(function(b){ b.addEventListener('click', function(){ openTab(b.getAttribute('data-tab')); }); });
   var h = (location.hash||'').replace('#','');
-  if (h==='review'||h==='changelog') openTab(h);
+  if (h==='review'||h==='changelog'||h==='paper') openTab(h);
 </script>
 </body>
 </html>
