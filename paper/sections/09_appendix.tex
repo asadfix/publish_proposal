@@ -12,9 +12,9 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \paragraph{Invariance and DIF.} Categorical-indicator models with threshold constraints, judged on effect-size criteria rather than chi-square. Alongside the constrained models we run alignment \citep{muthen2018} and anchor-free DIF \citep{chen2023}, so no conclusion depends on a hand-picked anchor set.
 
-\paragraph{Classifier-artefact control.} The full test suite is replicated with a non-lexicon transformer. Only non-invariance convergent across both classifiers is interpreted as a platform mode effect \citep{czarnek2022}; divergent results are flagged as classifier artefacts.
+\paragraph{Classifier-artefact control.} The full test suite is replicated with a non-lexicon transformer. A result counts as a platform mode effect only when both classifier families show it \citep{czarnek2022}; a pattern present under one family alone is recorded as a classifier artefact.
 
-\paragraph{Linking sensitivity.} Leave-one-event-out re-estimation of linking constants over the pre-identified fiscal-event anchors, with the September 2022 mini-budget as centrepiece; both 48-hour and 2-week event windows; ex-ante anchor purification applied before, not after, estimation.
+\paragraph{Linking sensitivity.} Leave-one-event-out re-estimation of linking constants over the pre-identified fiscal-event anchors, with the September 2022 mini-budget as the main anchor; both 48-hour and 2-week event windows; anchor purification fixed and applied before any estimation.
 
 \paragraph{Uncertainty and calibration.} Bootstrap confidence intervals on all indices; McNemar tests for classifier comparisons; temperature-scaled calibration checked per platform.
 
@@ -22,7 +22,7 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \section{Dissertation-Stage Diagnostic Outputs}
 
-The dissertation-stage per-class diagnostics are reproduced here in their original form, as archival evidence of the instrument as it stood; they are console outputs rather than typeset figures and will be regenerated, with the corrected reliability diagrams, in the recomputation. \todo{Regeneration checklist: transcribe both console reports into one typeset table noting the VADER-seeded reference labels; identical category order across paired figures; rename LSTM to BiLSTM; legends in plain English, placed outside the axes; sequential palette for unsigned rates; axes limited to the data range; state the Prophet interval level; vector output, no screenshot borders.} Both classifiers struggled most with the neutral class, the pattern the expanded criterion sample is designed to measure properly.
+The dissertation-stage per-class diagnostics are reproduced here in their original form, recording the state of the instrument at dissertation stage; they are console outputs rather than typeset figures and will be regenerated, with the corrected reliability diagrams, in the recomputation. \todo{Regeneration checklist: transcribe both console reports into one typeset table noting the VADER-seeded reference labels; identical category order across paired figures; rename LSTM to BiLSTM; legends in plain English, placed outside the axes; sequential palette for unsigned rates; axes limited to the data range; state the Prophet interval level; vector output, no screenshot borders.} Both classifiers struggled most with the neutral class; the expanded criterion sample is designed to measure this pattern properly.
 
 \begin{figure}[h]
 \centering
@@ -34,7 +34,7 @@ The dissertation-stage per-class diagnostics are reproduced here in their origin
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.72\linewidth]{fig_confusion_bilstm}
-\caption{Dissertation-stage per-class report and confusion matrix, BiLSTM (dissertation Figure~7.2, p.~36). The reference labels are again the VADER-seeded corpus labels, not the human criterion.}
+\caption{Per-class report and confusion matrix for the BiLSTM at dissertation stage (Figure~7.2, p.~36). The reference labels are again the VADER-seeded corpus labels, not the human criterion.}
 \label{fig:confbilstm}
 \end{figure}
 
