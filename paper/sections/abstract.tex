@@ -1,3 +1,31 @@
+% ============================================================
+% abstract.tex
+% ~190 words as written; the two \todo results bring it to ~200.
+% No citations in the abstract (AAAI convention).
+% ============================================================
+
 \begin{abstract}
-Social media platforms are routinely pooled into single indices of public opinion, on the untested assumption that machine-labelled sentiment means the same thing on each platform. We treat each platform as a survey mode and apply the psychometric equivalence toolkit, with the platform itself as the grouping facet, to sentiment and emotion labels over UK economic policy discussions on \todo{N, recounted} posts across \todo{K} platforms. Around pre-identified fiscal events, anchored on the September 2022 mini-budget, we (i) establish that cross-platform divergence survives controls for topic and time, (ii) decompose it with a fixed-facet generalizability study against an expanded human-labelled criterion, (iii) test categorical-indicator measurement invariance and differential item functioning per event, (iv) link platforms where the evidence permits, and (v) quantify what a naive pooled index gets wrong about the timing and severity of public reaction. Where comparison is not justified, we say so; that verdict is a finding. The result is a reusable diagnostic for any study that aggregates machine-labelled text across platforms.
+Comparing machine-labelled sentiment across social media platforms is
+now routine: differences in classifier scores between platforms are
+read as differences in public opinion. These comparisons rest on an
+assumption that the classifier measures the same construct, on the
+same scale, on every platform. To our knowledge, no study has tested
+that assumption for machine-labelled constructs by asking whether the
+platform is part of the measurement. We adapt the psychometric
+equivalence toolkit, generalizability theory, measurement invariance
+and differential item functioning, and score linking, to
+machine-labelled policy sentiment, treating the platform as a survey
+mode. We apply it to \todo{approximately 279{,}000 posts; confirm
+totals after recount} about UK economic policy from Twitter/X, Reddit,
+YouTube, and Quora (2018-2025), labelled by a fine-tuned BERT
+classifier and validated against a probability-sampled human-annotated
+criterion. A same-event design controls topic and time,
+pre-identified fiscal events centred on the September 2022 mini-budget
+serve as linking anchors, and replication with a non-lexicon
+transformer separates platform mode effects from lexicon artifacts.
+\todo{One-sentence headline invariance result.} \todo{One-sentence
+naive pooled index versus measurement-adjusted index result.} The
+protocol gives researchers a concrete test for deciding when pooling
+platforms is defensible and when platform scores must be linked rather
+than averaged.
 \end{abstract}

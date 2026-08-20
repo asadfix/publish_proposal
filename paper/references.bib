@@ -1,14 +1,56 @@
-% Seed references; extend from the brief's library (asadfix.github.io/publish_proposal)
+% Merged reference library, v0.2 (August 2026).
+% Entries with note "verify" carry placeholder metadata from the
+% August 2026 novelty sweep; confirm exact titles, authors, and venues
+% before submission. No invented DOIs anywhere.
+
+% ---------- survey-mode lineage ----------
+@book{tourangeau2000, author={Tourangeau, Roger and Rips, Lance J. and Rasinski, Kenneth}, title={The Psychology of Survey Response}, publisher={Cambridge University Press}, year={2000}}
 @article{klausch2013, author={Klausch, Thomas and Hox, Joop J. and Schouten, Barry}, title={Measurement effects of survey mode on the equivalence of attitudinal rating scale questions}, journal={Sociological Methods \& Research}, year={2013}, volume={42}, number={3}, pages={227--263}}
 @article{hox2015, author={Hox, Joop J. and De Leeuw, Edith D. and Zijlmans, Eva A. O.}, title={Measurement equivalence in mixed mode surveys}, journal={Frontiers in Psychology}, year={2015}, volume={6}, pages={87}}
-@inproceedings{overgaard2024, author={Overgaard, Christian S. M. B. and Lukito, Josephine and Soorholtz, Kathryn}, title={The manifestation of affective polarization on social media: a cross-platform supervised machine learning approach}, booktitle={Proc. ICWSM}, year={2024}}
-@inproceedings{wei2026, author={Wei, Ran and Li, Xinyi and Liao, Qing and others}, title={Cross-platform short-video diplomacy: topic and sentiment analysis of China--US relations on Douyin and TikTok}, booktitle={Proc. ICWSM}, year={2026}}
-@inproceedings{nogara2025, author={Nogara, Gianluca and Pierri, Francesco and Cresci, Stefano and Luceri, Luca and T{\"o}rnberg, Petter and Giordano, Silvia}, title={Toxic bias: {Perspective API} misreads {German} as more toxic}, booktitle={Proc. ICWSM}, year={2025}}
-@inproceedings{atreja2025, author={Atreja, Shubham and Ashkinaze, Joshua and Li, Lingyao and Mendelsohn, Julia and Hemphill, Libby}, title={What's in a prompt? Assessing the impact of prompt design on {LLM}-generated text annotations}, booktitle={Proc. ICWSM}, year={2025}}
-@article{davidson2023, author={Davidson, Brittany I. and others}, title={Platform-controlled social media {APIs} threaten open science}, journal={Nature Human Behaviour}, year={2023}, volume={7}, pages={2038--2041}}
-@inproceedings{goanta2026, author={Goanta, Catalina and Zannettou, Savvas and others}, title={The great data standoff: researchers vs. platforms under the {Digital Services Act}}, booktitle={Proc. ICWSM}, year={2026}}
+@article{groves2010, author={Groves, Robert M. and Lyberg, Lars}, title={Total survey error: past, present, and future}, journal={Public Opinion Quarterly}, year={2010}, volume={74}, number={5}, pages={849--879}}
+
+% ---------- psychometric toolkit ----------
+@book{cronbach1972, author={Cronbach, Lee J. and Gleser, Goldine C. and Nanda, Harinder and Rajaratnam, Nageswari}, title={The Dependability of Behavioral Measurements: Theory of Generalizability for Scores and Profiles}, publisher={Wiley}, year={1972}}
+@book{brennan2001, author={Brennan, Robert L.}, title={Generalizability Theory}, publisher={Springer}, year={2001}}
+@article{meredith1993, author={Meredith, William}, title={Measurement invariance, factor analysis and factorial invariance}, journal={Psychometrika}, year={1993}, volume={58}, number={4}, pages={525--543}}
+@article{putnick2016, author={Putnick, Diane L. and Bornstein, Marc H.}, title={Measurement invariance conventions and reporting: the state of the art and future directions for psychological research}, journal={Developmental Review}, year={2016}, volume={41}, pages={71--90}}
+@book{kolen2014, author={Kolen, Michael J. and Brennan, Robert L.}, title={Test Equating, Scaling, and Linking: Methods and Practices}, edition={3rd}, publisher={Springer}, year={2014}}
+@article{wu2016, author={Wu, Hao and Estabrook, Ryne}, title={Identification of confirmatory factor analysis models of different levels of invariance for ordered categorical outcomes}, journal={Psychometrika}, year={2016}, volume={81}, number={4}, pages={1014--1045}}
+@article{chen2007, author={Chen, Fang Fang}, title={Sensitivity of goodness of fit indexes to lack of measurement invariance}, journal={Structural Equation Modeling: A Multidisciplinary Journal}, year={2007}, volume={14}, number={3}, pages={464--504}}
 @article{chen2023, author={Chen, Yunxiao and Li, Chengcheng and Ouyang, Jing and Xu, Gongjun}, title={{DIF} statistical inference without knowing anchoring items}, journal={Psychometrika}, year={2023}, volume={88}, number={4}, pages={1097--1122}}
 @article{muthen2018, author={Muth{\'e}n, Bengt and Asparouhov, Tihomir}, title={Recent methods for the study of measurement invariance with many groups: alignment and random effects}, journal={Sociological Methods \& Research}, year={2018}, volume={47}, number={4}}
 @article{robitzsch2023, author={Robitzsch, Alexander and L{\"u}dtke, Oliver}, title={Why full, partial, or approximate measurement invariance are not a prerequisite for meaningful and valid group comparisons}, journal={Structural Equation Modeling}, year={2023}, volume={30}, number={6}}
-@article{ludwig2022, author={Ludwig, Kristina and others}, title={Two is better than one: using a single emotion lexicon can lead to unreliable conclusions}, journal={PLOS ONE}, year={2022}, volume={17}, number={10}, pages={e0275910}}
 @article{jak2013, author={Jak, Suzanne and Oort, Frans J. and Dolan, Conor V.}, title={A test for cluster bias: detecting violations of measurement invariance across clusters in multilevel data}, journal={Structural Equation Modeling}, year={2013}, volume={20}, number={2}}
+
+% ---------- measurement for machine-labelled text ----------
+@inproceedings{jacobs2021, author={Jacobs, Abigail Z. and Wallach, Hanna}, title={Measurement and fairness}, booktitle={Proceedings of the ACM Conference on Fairness, Accountability, and Transparency (FAccT)}, year={2021}}
+@misc{halterman2025, author={Halterman, Andrew and Keith, Katherine A.}, title={Large language models as measurement instruments for social science}, year={2025}, note={Verify exact title and venue before submission}}
+@article{pellert2022, author={Pellert, Max and Metzler, Hannah and Matzenberger, Michael and Garcia, David}, title={Validating daily social media macroscopes of emotions}, journal={Scientific Reports}, year={2022}, volume={12}}
+@inproceedings{atreja2025, author={Atreja, Shubham and Ashkinaze, Joshua and Li, Lingyao and Mendelsohn, Julia and Hemphill, Libby}, title={What's in a prompt? Assessing the impact of prompt design on {LLM}-generated text annotations}, booktitle={Proc. ICWSM}, year={2025}}
+@misc{baumann2025, author={Baumann, Joachim and others}, title={Large language model hacking: quantifying the hidden risks of using {LLMs} for text annotation}, year={2025}, note={arXiv preprint; verify exact title and author list}}
+@inproceedings{egami2023, author={Egami, Naoki and Hinck, Musashi and Stewart, Brandon M. and Wei, Hanying}, title={Using imperfect surrogates for downstream inference: design-based supervised learning for social science applications of large language models}, booktitle={Advances in Neural Information Processing Systems (NeurIPS)}, year={2023}}
+@inproceedings{pangakis2025, author={Pangakis, Nicholas and Wolken, Samuel}, title={Keeping humans in the loop: human-centered automated annotation with generative {AI}}, booktitle={Proc. ICWSM}, year={2025}}
+@article{ludwig2022, author={Ludwig, Kristina and others}, title={Two is better than one: using a single emotion lexicon can lead to unreliable conclusions}, journal={PLOS ONE}, year={2022}, volume={17}, number={10}, pages={e0275910}}
+
+% ---------- cross-platform studies and platform data access ----------
+@inproceedings{overgaard2024, author={Overgaard, Christian S. M. B. and Lukito, Josephine and Soorholtz, Kathryn}, title={The manifestation of affective polarization on social media: a cross-platform supervised machine learning approach}, booktitle={Proc. ICWSM}, year={2024}}
+@inproceedings{wei2026, author={Wei, Ran and Li, Xinyi and Liao, Qing and others}, title={Cross-platform short-video diplomacy: topic and sentiment analysis of China--US relations on Douyin and TikTok}, booktitle={Proc. ICWSM}, year={2026}}
+@inproceedings{nogara2025, author={Nogara, Gianluca and Pierri, Francesco and Cresci, Stefano and Luceri, Luca and T{\"o}rnberg, Petter and Giordano, Silvia}, title={Toxic bias: {Perspective API} misreads {German} as more toxic}, booktitle={Proc. ICWSM}, year={2025}}
+@inproceedings{greene2025, author={Greene and others}, title={The same actors are read differently across platforms}, booktitle={Proc. ICWSM}, year={2025}, note={Placeholder title and author list; complete from the August 2026 novelty sweep records}}
+@article{davidson2023, author={Davidson, Brittany I. and others}, title={Platform-controlled social media {APIs} threaten open science}, journal={Nature Human Behaviour}, year={2023}, volume={7}, pages={2038--2041}}
+@inproceedings{goanta2026, author={Goanta, Catalina and Zannettou, Savvas and others}, title={The great data standoff: researchers vs. platforms under the {Digital Services Act}}, booktitle={Proc. ICWSM}, year={2026}}
+@article{sen2021, author={Sen, Indira and Fl{\"o}ck, Fabian and Weller, Katrin and Wei{\ss}, Bernd and Wagner, Claudia}, title={A total error framework for digital traces of human behavior on online platforms}, journal={Public Opinion Quarterly}, year={2021}, volume={85}, number={S1}, pages={399--422}}
+
+% ---------- ICWSM classics ----------
+@inproceedings{oconnor2010, author={O'Connor, Brendan and Balasubramanyan, Ramnath and Routledge, Bryan R. and Smith, Noah A.}, title={From tweets to polls: linking text sentiment to public opinion time series}, booktitle={Proc. ICWSM}, year={2010}}
+@inproceedings{morstatter2013, author={Morstatter, Fred and Pfeffer, J{\"u}rgen and Liu, Huan and Carley, Kathleen M.}, title={Is the sample good enough? Comparing data from {Twitter}'s streaming {API} with {Twitter}'s firehose}, booktitle={Proc. ICWSM}, year={2013}}
+@inproceedings{cohen2013, author={Cohen, Raviv and Ruths, Derek}, title={Classifying political orientation on {Twitter}: it's not easy!}, booktitle={Proc. ICWSM}, year={2013}}
+@inproceedings{tufekci2014, author={Tufekci, Zeynep}, title={Big questions for social media big data: representativeness, validity and other methodological pitfalls}, booktitle={Proc. ICWSM}, year={2014}}
+
+% ---------- nearest misses (novelty sweep, August 2026) ----------
+@misc{boyd2024, author={Boyd and others}, title={Cross-platform measurement invariance of survey self-reports}, year={2024}, note={Placeholder title and author list; complete from the August 2026 novelty sweep records}}
+@misc{kennedy2020, author={Kennedy, Chris J. and Bacon, Geoff and Sahn, Alexander and von Vacano, Claudia}, title={Constructing interval variables via faceted {Rasch} measurement and multitask deep learning: a hate speech application}, year={2020}, note={arXiv preprint}}
+@inproceedings{sachdeva2022, author={Sachdeva, Pratik and Barreto, Renata and Bacon, Geoff and Sahn, Alexander and von Vacano, Claudia and Kennedy, Chris}, title={The Measuring Hate Speech corpus: leveraging {Rasch} measurement theory for data perspectivism}, booktitle={Proceedings of the 1st Workshop on Perspectivist Approaches to NLP (NLPerspectives) at LREC}, year={2022}}
+@misc{cernat2025, author={Cernat, Alexandru and others}, title={Multitrait-multimethod comparison of survey and digital-trace measures}, year={2025}, note={Placeholder title and author list; complete from the August 2026 novelty sweep records}}
+@misc{han2025, author={Han and Anderson}, title={Measurement equivalence of online star ratings}, year={2025}, note={Placeholder title and author list; complete from the August 2026 novelty sweep records}}
+@article{pokropek2026, author={Pokropek, Artur and others}, title={Confirmatory factor analysis of text-based indicators over time}, journal={EPJ Data Science}, year={2026}, note={Placeholder title; complete from the August 2026 novelty sweep records}}

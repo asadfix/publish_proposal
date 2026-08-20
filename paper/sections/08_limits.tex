@@ -1,2 +1,27 @@
-\section{Limitations, Ethics and Conclusion}
-\todo{upper-bound confound without matched users; platform scope; sentiment is not support; dissertation errata superseded by recomputation (Fig 7.5 label; MAE 0.02 vs 0.05; ECE 0.03 vs 0.05; coverage 0.07 vs 0.5 percent; accuracy rounding); external validation against BSA/BES/YouGov as future work}
+% ============================================================
+% 08_limits.tex
+% Limitations, Ethics Statement, Conclusion
+% ============================================================
+
+\section{Limitations}
+\label{sec:limitations}
+
+Five limitations bound our claims. First, the selection confound. Users choose their platforms, and the same-event design controls topic and time, not who is posting. Any non-invariance we detect therefore bundles population composition with measurement mode; because the two can offset as well as compound, the bundle cannot be read as a bound on the pure mode effect, only as the platform-level difference in how the construct is measured \citep{sen2021}. The convergence criterion \citep{ludwig2022} removes classifier artifacts from this bundle; it cannot remove selection. Separating the two would require within-user cross-posting data, which we do not have.
+
+Second, platform scope. We study four platforms, and the anchor-density audit may narrow the analysis to the subset with sufficient same-event coverage. All findings are conditional on the retained platforms and events. Exclusion of a sparse platform is a data limitation, not evidence that it measures equivalently. Likewise, following \citet{robitzsch2023}, we read invariance results as diagnostic evidence about this corpus, not as a general licence to pool.
+
+Third, construct. Our instrument measures expressed sentiment, not policy support. Negative sentiment in a thread about inflation need not be opposition to any policy \citep{oconnor2010}. Our equivalence results concern the sentiment measure itself; any mapping to attitudes would need separate validation.
+
+Fourth, a single country and language. All data are UK-focused and English. Machine scoring is language-dependent \citep{nogara2025}, and platform affordance mixes differ across national ecologies, so we make no cross-country claim.
+
+Finally, provenance. The dissertation underlying this paper reported inconsistent per-platform counts (\todo{list corrected totals}). All statistics here were recomputed from the raw archived data, and the recomputed figures supersede the dissertation throughout.
+
+\section{Ethics Statement}
+\label{sec:ethics}
+
+This is an observational study of public posts on public policy topics. Collection was approved by the ethics committee of the authors' institution (\todo{approval reference}) and complies with GDPR: no private, deleted, or direct-message content was collected, released artifacts contain no personal identifiers, and quoted examples are paraphrased. Annotators were \todo{recruitment and compensation details}. The main foreseeable misuse is reading our diagnostics as a ranking of platforms by accuracy; they are equivalence tests, not quality scores, and we caution against that reading.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Platform is part of the measurement instrument until shown otherwise. We formalize that claim and test it with the psychometric equivalence toolkit, applied to machine-labelled policy sentiment with platform as the grouping facet, to our knowledge for the first time. Either outcome is informative: invariance would give pooled cross-platform indices a defensible footing; non-invariance would quantify exactly where, and by how much, pooling misleads. \todo{One-sentence headline finding once Step 3 and Step 6 results are in.}

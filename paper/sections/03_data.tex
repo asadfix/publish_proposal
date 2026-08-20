@@ -1,5 +1,25 @@
-\section{Data}
-\blocked{ANCHOR-DENSITY AUDIT + RECOUNT}
-\paragraph{Corpus.} \todo{recounted per-platform totals; collection provenance; ethics and GDPR basis}
-\paragraph{Anchor events.} \todo{Table 1: 5-10 UK fiscal shocks, 48-hour and two-week windows, posts per platform per window; the September 2022 mini-budget as centrepiece}
-\paragraph{Human-labelled criterion.} \todo{1,000-1,500 posts, probability-sampled stratified by platform and event; second annotator on a subset; agreement statistics}
+% ============================================================
+% 03_data.tex
+% ============================================================
+
+\section{Data and Validation Design}
+\label{sec:data}
+
+\paragraph{Corpus.}
+The corpus contains \todo{approximately 279{,}000; confirm after recount} public posts about UK economic policy, collected from Twitter/X, Reddit, YouTube, and Quora and spanning 2018 to 2025. Posts cover four policy domains: taxation, welfare, inflation, and energy. \todo{Report per-platform totals once the recount is complete. The per-platform figures in the dissertation are internally inconsistent; the recomputed totals supersede them and the discrepancy is disclosed here.} Machine labels come from a fine-tuned BERT classifier (macro-F1 0.878, against BiLSTM, logistic regression, and VADER baselines), trained on VADER-seeded labels. The circularity this seeding introduces is disclosed and addressed by the human criterion below and by the artifact control in Section~\ref{sec:framework}. The corpus is held fixed across all six steps, so every comparison uses the same posts.
+
+\paragraph{Anchor events.}
+Cross-platform comparison requires posts about the same event at the same time. We pre-identified a set of UK fiscal policy events observed on all four platforms, with the September 2022 mini-budget as the centrepiece, and defined two windows per event: an acute 48-hour window and an extended two-week window. An anchor-density audit precedes all analysis (Section~\ref{sec:framework}); platforms that fail the minimum post-count threshold for an event-window are excluded from that comparison, and the study narrows to the dense subset of platforms if required.
+
+\begin{table}[t]
+\centering
+\caption{Anchor events with dates and per-platform post counts in the 48-hour and two-week windows.}
+\label{tab:anchors}
+\blocked{Populate after the corpus recount and the anchor-density audit.}
+\end{table}
+
+\paragraph{Gold-standard sample.}
+The dissertation validated machine labels on 200 posts (Cohen's $\kappa \approx 0.78$). Because that sample is small and was not drawn by probability sampling, we expand it to 1,000-1,500 posts drawn by stratified probability sampling, with strata defined by platform, anchor event, and predicted class, and inclusion probabilities retained for design-weighted estimates. A second annotator codes a \todo{subset of $n$} posts; disagreements are adjudicated and inter-annotator reliability is reported. This sample is the criterion for the generalizability study and the invariance analyses, and it breaks the circularity of the VADER-seeded training labels: the criterion is human judgment, not another lexicon. Human validation remains essential for machine annotation \citep{pangakis2025, atreja2025}.
+
+\paragraph{Ethics.}
+The study operates under institutional ethics approval and GDPR. We analyse public posts only, apply data minimisation, and process data under the Article 89 research safeguards. We report aggregates, paraphrase any quoted material, make no attempt to identify users, and share dehydrated identifiers rather than full text where platform terms require it.

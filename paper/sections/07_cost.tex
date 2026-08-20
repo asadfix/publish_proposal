@@ -1,3 +1,10 @@
-\section{The Cost of Ignoring the Platform}
-\blocked{LINKING RESULTS}
-\todo{naive pooled index vs measurement-adjusted index on the same events; misread timing/severity as the closing figure}
+% ============================================================
+% 07_cost.tex
+% ============================================================
+
+\section{Step 6: The Cost of Assuming Equivalence}
+\label{sec:cost}
+
+The final step prices the assumption the field currently makes for free. From the same corpus we construct two indices. The naive index pools posts across platforms and tracks the share of negative posts over time, the construction canonical since \citet{oconnor2010}. The adjusted index applies the platform-specific measurement parameters from Step 3 and, where the fork in Section~\ref{sec:linking} permits, the linking functions from Step 5. We compare the two on the quantities an analyst would actually report: index levels, trends, and the estimated sentiment shift around each anchor event, including sign flips in that shift. Both indices are also fed to a Prophet forecasting model, replicating the dissertation pipeline, and forecast error is compared. Finally, we simulate composition change: reweighting platform shares to mimic a platform losing API access \citep{davidson2023, goanta2026} shows how much apparent sentiment movement is a measurement and composition artifact rather than opinion change. Label-error corrections do not touch this quantity, because the error lies between platforms, not between classifier and criterion \citep{egami2023}.
+
+\blocked{Results: naive versus adjusted index comparison, event-shift bias, sign flips, forecast error, and composition simulation.}
