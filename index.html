@@ -340,10 +340,10 @@
   </div>
 
   <nav class="tabbar" aria-label="Views">
-    <button class="tabbtn active" data-tab="proposal">The proposal <span class="tsub">updated</span></button>
-    <button class="tabbtn" data-tab="review">The review, answered <span class="tsub">9 points</span></button>
-    <button class="tabbtn" data-tab="changelog">Change log <span class="tsub">v1 to v2.1</span></button>
-    <button class="tabbtn" data-tab="paper">The arXiv paper <span class="tsub">structure &amp; draft</span></button>
+    <button class="tabbtn active" data-tab="proposal">ICWSM: proposal <span class="tsub">updated</span></button>
+    <button class="tabbtn" data-tab="review">ICWSM: review, answered <span class="tsub">9 points</span></button>
+    <button class="tabbtn" data-tab="changelog">ICWSM: change log <span class="tsub">v1 to v2.1</span></button>
+    <button class="tabbtn" data-tab="paper">The arXiv paper <span class="tsub">August 2026</span></button>
   </nav>
 
   <div class="tabpane active" id="pane-proposal">
@@ -812,7 +812,7 @@
   <section class="sec reveal in">
     <div class="kicker">From plan to preprint</div>
     <h2>The paper</h2>
-    <p><b>&ldquo;Is the Platform Part of the Measurement? Testing Cross-Platform Equivalence of Machine-Labelled Policy Sentiment.&rdquo;</b> arXiv (cs.SI) in December 2026, then a five-page poster to ICWSM 2027 Round 3 on 15 January. Final shape: the six-step protocol, a known-truth simulation quantifying what assuming equivalence costs, and the dissertation-stage case as motivating evidence; the four-platform application runs as the follow-up study on freshly collected data.</p>
+    <p><b>&ldquo;Is the Platform Part of the Measurement? Testing Cross-Platform Equivalence of Machine-Labelled Policy Sentiment.&rdquo;</b> Publishing on arXiv (cs.SI) in August 2026. This paper stands on its own and publishes what the dissertation established: the six-step protocol, a known-truth simulation quantifying what assuming equivalence costs (over 500 runs, a pooled index overstates an event shift by an eighth and gets the sign of public sentiment wrong on a quarter of days), and the dissertation-stage evidence. The ICWSM work on the other three tabs is a separate track.</p>
     <div class="olbtns">
       <a class="olbtn" href="https://www.overleaf.com/read/ytpnqxxhfnxt#d80cb1" target="_blank" rel="noopener"><span class="ic">&#128065;</span>&nbsp;View the draft on Overleaf</a>
       <a class="olbtn sec2" href="paper.pdf" target="_blank" rel="noopener">Download the PDF</a>
@@ -831,17 +831,32 @@
       <tr><td>Appendix</td><td>robustness battery, availability statement</td><td><span class="stx stx-done">outlined</span></td></tr>
     </table>
     <div class="kicker" style="margin-top:26px">Before we publish</div>
-    <h2 style="font-size:26px">Eight questions for Dr Haig</h2>
+    <h2 style="font-size:26px">Questions for Dr Haig</h2>
     <ol style="font-size:15px;line-height:1.75;padding-left:22px;margin:10px 0 18px">
-      <li><b>Shape.</b> Do you approve publishing in this form: protocol, known-truth simulation, and the dissertation-stage case now, with the four-platform application on fresh data as the registered follow-up?</li>
-      <li><b>Simulation parameters.</b> The generating model (platform biases, thresholds, noise, composition drift, replications) needs pre-registering. Are the proposed illustrative values a fair starting point, or do you want different ones?</li>
-      <li><b>Anchor list.</b> Fifteen fiscal events, 2020 to 2025, are pre-registered in Table 2 with the mini-budget as centrepiece. Confirm or amend before anything is counted.</li>
-      <li><b>Control classifier.</b> Is a human-labelled RoBERTa (cardiffnlp) acceptable as the named non-lexicon arm of the convergence control?</li>
-      <li><b>Annotation plan.</b> For the application: overlap share, a second or third coder, compensation, and whether it needs an amendment to TETHIC-2025-111094 or a fresh application.</li>
-      <li><b>The errata list.</b> Eight discrepancies in the dissertation are publicly disclosed in the draft, including two found in the execution records. Are you comfortable with the list as written?</li>
-      <li><b>Venue and timing.</b> arXiv in December, poster to ICWSM Round 3 in January, full application paper later. Keep or adjust?</li>
-      <li><b>Names.</b> Title, author order, and affiliation wording: approve as printed on page 1?</li>
+      <li>Are you happy for this to go on arXiv this month, August 2026?</li>
+      <li>Does the main idea read right to you: a platform works like a survey mode, so platform scores need testing before anyone pools them?</li>
+      <li>Is the simulation convincing enough as the paper&rsquo;s main result, or would you strengthen it before we post?</li>
+      <li>How should we position it: as a methods paper, a protocol paper, or both? And is there a journal you would send it to after arXiv?</li>
+      <li>The draft openly lists the dissertation&rsquo;s errata and says the raw data did not survive. Are you comfortable with that honesty in public?</li>
+      <li>Is there anything you would add, cut, or say differently, especially in the introduction and related work?</li>
+      <li>Are the title, the author order, and the affiliations right as printed on page 1?</li>
     </ol>
+    <div class="kicker" style="margin-top:26px">This paper&rsquo;s history</div>
+    <h2 style="font-size:26px">arXiv draft change log</h2>
+    <table class="secs">
+      <tr><td>v0.1&nbsp;&middot;&nbsp;20&nbsp;Aug</td><td>LaTeX skeleton created; structure agreed from the brief</td><td></td></tr>
+      <tr><td>v0.2</td><td>full first draft of every section; 40-entry bibliography</td><td></td></tr>
+      <tr><td>v0.3</td><td>aligned page by page with the dissertation; all 21 external references verified online; a wrongly attributed citation corrected; real ethics certificate cited</td><td></td></tr>
+      <tr><td>v0.4</td><td>nine dissertation figures embedded; classifier table; a new erratum found and disclosed</td><td></td></tr>
+      <tr><td>v0.5</td><td>four-professor adversarial review, 36 fixes: criterion mixing disclosed, linking respecified, indicators respecified</td><td></td></tr>
+      <tr><td>v0.6</td><td>prose pass, 79 rewrites; every double hyphen removed</td><td></td></tr>
+      <tr><td>v0.7</td><td>first clean compile; cold-read fixes; keyword scheme transcribed as an appendix</td><td></td></tr>
+      <tr><td>v0.8</td><td>execution records recovered: 255,446 comments and 6,650 posts established; agreement corrected to 88.1&#37;; two notebook figures added</td><td></td></tr>
+      <tr><td>v0.9</td><td>fifteen anchor events pre-registered with dates; analysis scripts written</td><td></td></tr>
+      <tr><td>v1.0</td><td>scripts tested end to end; the archive search documented</td><td></td></tr>
+      <tr><td>v1.1</td><td>simulation-first shape; the archive loss disclosed in plain prose</td><td></td></tr>
+      <tr><td>v1.2&nbsp;&middot;&nbsp;21&nbsp;Aug</td><td>final simulation numbers over 500 replications; decoupled from the ICWSM track; publishing August 2026</td><td></td></tr>
+    </table>
     <p style="font-size:14px;color:var(--ink-faint)">The PDF is recompiled from the private <b>arxiv_thesis</b> repository, which two-way syncs with our Overleaf project (authors: Menu &rarr; GitHub to pull or push). Want your own editable copy? <a href="https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/asadfix/publish_proposal/main/paper.zip" target="_blank" rel="noopener" style="color:var(--teal)">Import the source into Overleaf</a> or browse the <a href="https://github.com/asadfix/publish_proposal/tree/main/paper" target="_blank" rel="noopener" style="color:var(--teal)">public mirror</a>.</p>
   </section>
   </div><!-- /pane-paper -->

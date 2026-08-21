@@ -67,8 +67,8 @@ This paper makes four contributions.
     \citep{czarnek2022}, and invariance results are treated as
     diagnostic evidence rather than grounds to pool
     \citep{robitzsch2023}.
-  \item We quantify the cost of assuming equivalence in a simulation with known ground truth: platforms that read the same latent opinion through different measurement functions produce a pooled index that distorts event shifts and can report the wrong sign of aggregate sentiment, while a measurement-adjusted index recovers the truth. \todo{Insert the final numbers once the generating parameters are pre-registered.}
-  \item We ground the protocol in a case study of the dissertation-stage instrument, a fine-tuned BERT classifier over 255,446 UK economic-policy comments from Twitter/X, Reddit, YouTube, and Quora, whose execution records supply the paper's motivating evidence; the full four-platform application, under fresh collection with the pre-registered design, is designated as the follow-up study.
+  \item We quantify the cost of assuming equivalence in a simulation with known ground truth: across 500 replications of one generating configuration fixed in advance, a pooled index that takes platform scores at face value misstates a known event shift by roughly an eighth, and because the platforms measure through different functions it reports the wrong sign of aggregate sentiment on nearly a quarter of days; a measurement-adjusted index recovers the shift with negligible bias and the correct sign on all but one day in sixty on average.
+  \item We ground the protocol in a case study of the dissertation-stage instrument, a fine-tuned BERT classifier over 255,446 UK economic-policy comments from Twitter/X, Reddit, YouTube, and Quora, whose execution records supply the paper's motivating evidence; the full four-platform application, under fresh collection with the pre-specified design, is designated as the follow-up study.
 \end{enumerate}
 
 The paper proceeds as follows. Section~\ref{sec:related} locates the
