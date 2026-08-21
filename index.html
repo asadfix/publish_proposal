@@ -329,6 +329,9 @@
   .stx{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:3px 10px;border-radius:100px}
   .stx-done{background:rgba(31,107,99,.12);color:var(--teal)}
   .stx-wait{background:rgba(231,181,60,.16);color:#7a5b14}
+  .qbox{background:rgba(31,107,99,.07);border:1px solid rgba(31,107,99,.35);border-left:5px solid var(--teal);border-radius:14px;padding:20px 26px;margin:24px 0}
+  .qbox h2{font-size:24px;margin:2px 0 4px}
+  .qbox .kicker{margin-top:0}
 </style>
 </head>
 <body>
@@ -344,6 +347,7 @@
     <button class="tabbtn" data-tab="review">ICWSM: review, answered <span class="tsub">9 points</span></button>
     <button class="tabbtn" data-tab="changelog">ICWSM: change log <span class="tsub">v1 to v2.1</span></button>
     <button class="tabbtn" data-tab="paper">The arXiv paper <span class="tsub">August 2026</span></button>
+    <button class="tabbtn" data-tab="paperlog">arXiv: change log <span class="tsub">v0.1 to v1.2</span></button>
   </nav>
 
   <div class="tabpane active" id="pane-proposal">
@@ -812,7 +816,7 @@
   <section class="sec reveal in">
     <div class="kicker">From plan to preprint</div>
     <h2>The paper</h2>
-    <p><b>&ldquo;Is the Platform Part of the Measurement? Testing Cross-Platform Equivalence of Machine-Labelled Policy Sentiment.&rdquo;</b> Publishing on arXiv (cs.SI) in August 2026. This paper stands on its own and publishes what the dissertation established: the six-step protocol, a known-truth simulation quantifying what assuming equivalence costs (over 500 runs, a pooled index overstates an event shift by an eighth and gets the sign of public sentiment wrong on a quarter of days), and the dissertation-stage evidence. The ICWSM work on the other three tabs is a separate track.</p>
+    <p><b>&ldquo;Is the Platform Part of the Measurement? Testing Cross-Platform Equivalence of Machine-Labelled Policy Sentiment.&rdquo;</b> Publishing on arXiv (cs.SI) in August 2026, standing on what the dissertation established: the six-step protocol, a known-truth simulation of what assuming equivalence costs, and the dissertation-stage evidence. The ICWSM work on the other tabs is a separate track.</p>
     <div class="olbtns">
       <a class="olbtn" href="https://www.overleaf.com/read/ytpnqxxhfnxt#d80cb1" target="_blank" rel="noopener"><span class="ic">&#128065;</span>&nbsp;View the draft on Overleaf</a>
       <a class="olbtn sec2" href="paper.pdf" target="_blank" rel="noopener">Download the PDF</a>
@@ -830,9 +834,10 @@
       <tr><td>8&nbsp;&middot;&nbsp;Limits, ethics, conclusion</td><td>upper bound, scope, errata superseded</td><td><span class="stx stx-done">drafted</span></td></tr>
       <tr><td>Appendix</td><td>robustness battery, availability statement</td><td><span class="stx stx-done">outlined</span></td></tr>
     </table>
-    <div class="kicker" style="margin-top:26px">Before we publish</div>
-    <h2 style="font-size:26px">Questions for Dr Haig</h2>
-    <ol style="font-size:15px;line-height:1.75;padding-left:22px;margin:10px 0 18px">
+    <div class="qbox">
+    <div class="kicker">Before we publish</div>
+    <h2>Questions for Dr Ella Haig</h2>
+    <ol style="font-size:15px;line-height:1.75;padding-left:22px;margin:10px 0 4px">
       <li>Are you happy for this to go on arXiv this month, August 2026?</li>
       <li>Does the main idea read right to you: a platform works like a survey mode, so platform scores need testing before anyone pools them?</li>
       <li>Is the simulation convincing enough as the paper&rsquo;s main result, or would you strengthen it before we post?</li>
@@ -841,6 +846,17 @@
       <li>Is there anything you would add, cut, or say differently, especially in the introduction and related work?</li>
       <li>Are the title, the author order, and the affiliations right as printed on page 1?</li>
     </ol>
+    </div>
+    
+  </section>
+  </div><!-- /pane-paper -->
+
+  <div class="tabpane" id="pane-paperlog">
+  <span class="pane-note">Part 5 &middot; arXiv draft change log</span>
+  <section class="sec reveal in">
+    <div class="kicker">This paper&rsquo;s history</div>
+    <h2>arXiv draft change log</h2>
+    <p style="font-size:15px;color:var(--ink-faint)">How the paper reached its final shape, separate from the ICWSM change log.</p>
     <div class="kicker" style="margin-top:26px">This paper&rsquo;s history</div>
     <h2 style="font-size:26px">arXiv draft change log</h2>
     <table class="secs">
@@ -857,9 +873,8 @@
       <tr><td>v1.1</td><td>simulation-first shape; the archive loss disclosed in plain prose</td><td></td></tr>
       <tr><td>v1.2&nbsp;&middot;&nbsp;21&nbsp;Aug</td><td>final simulation numbers over 500 replications; decoupled from the ICWSM track; publishing August 2026</td><td></td></tr>
     </table>
-    <p style="font-size:14px;color:var(--ink-faint)">The PDF is recompiled from the private <b>arxiv_thesis</b> repository, which two-way syncs with our Overleaf project (authors: Menu &rarr; GitHub to pull or push). Want your own editable copy? <a href="https://www.overleaf.com/docs?snip_uri=https://raw.githubusercontent.com/asadfix/publish_proposal/main/paper.zip" target="_blank" rel="noopener" style="color:var(--teal)">Import the source into Overleaf</a> or browse the <a href="https://github.com/asadfix/publish_proposal/tree/main/paper" target="_blank" rel="noopener" style="color:var(--teal)">public mirror</a>.</p>
   </section>
-  </div><!-- /pane-paper -->
+  </div><!-- /pane-paperlog -->
 
   <footer class="foot">
     <div class="who">
@@ -904,7 +919,7 @@
   }
   btns.forEach(function(b){ b.addEventListener('click', function(){ openTab(b.getAttribute('data-tab')); }); });
   var h = (location.hash||'').replace('#','');
-  if (h==='review'||h==='changelog'||h==='paper') openTab(h);
+  if (h==='review'||h==='changelog'||h==='paper'||h==='paperlog') openTab(h);
 </script>
 </body>
 </html>
