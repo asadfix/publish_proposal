@@ -16,19 +16,33 @@ Every headline result is paired with the checks below. \blocked{Full battery tab
 
 \paragraph{Linking sensitivity.} Leave-one-event-out re-estimation of linking constants over the pre-identified fiscal-event anchors, with the September 2022 mini-budget as the main anchor; both 48-hour and 2-week event windows; anchor purification fixed and applied before any estimation.
 
-\paragraph{Uncertainty and calibration.} Bootstrap confidence intervals on all indices; McNemar tests for classifier comparisons; temperature-scaled calibration checked per platform.
+\paragraph{Uncertainty and calibration.} Bootstrap confidence intervals on all indices; McNemar tests for classifier comparisons; temperature-scaled calibration checked per platform. At dissertation stage the executed notebook records McNemar $b=22{,}429$, $c=5{,}680$, $p<0.001$, and a bootstrap macro-F1 difference of 0.067 (95 per cent interval 0.065 to 0.068) between the two classifier families, against the VADER-seeded reference labels.
 
 \paragraph{Annotation reliability.} Expansion of the human criterion sample from the dissertation's 200 balanced posts (Cohen's kappa approximately 0.78; dissertation p.~28) to \todo{1,000-1,500} probability-sampled posts with a second-annotator subset; agreement \todo{kappa}.
 
 \section{Dissertation-Stage Diagnostic Outputs}
 
-The dissertation-stage per-class diagnostics are reproduced here in their original form (Figures~\ref{fig:confbert} and~\ref{fig:confbilstm}), recording the state of the instrument at dissertation stage; they are console outputs rather than typeset figures and will be regenerated, with the corrected reliability diagrams, in the recomputation. \todo{Regeneration checklist: transcribe both console reports into one typeset table noting the VADER-seeded reference labels; identical category order across paired figures; rename LSTM to BiLSTM; legends in plain English, placed outside the axes; sequential palette for unsigned rates; axes limited to the data range; state the Prophet interval level; vector output, no screenshot borders. The checklist applies to the dissertation-stage figures in the main text as well.} Both classifiers struggled most with the neutral class; the expanded criterion sample is designed to measure this pattern properly.
+The dissertation-stage per-class diagnostics are reproduced here in their original form (Figures~\ref{fig:confbert} and~\ref{fig:confbilstm}), recording the state of the instrument at dissertation stage; they are console outputs rather than typeset figures and will be regenerated, with the corrected reliability diagrams, in the recomputation. \todo{Regeneration checklist: transcribe both console reports into one typeset table noting the VADER-seeded reference labels; identical category order across paired figures; rename LSTM to BiLSTM; legends in plain English, placed outside the axes; sequential palette for unsigned rates; axes limited to the data range; state the Prophet interval level; vector output, no screenshot borders. The checklist applies to the dissertation-stage figures in the main text as well.} Both classifiers struggled most with the neutral class; the expanded criterion sample is designed to measure this pattern properly. Figure~\ref{fig:agreement} shows the executed notebook's agreement tally between the two families, the source of the 88.1 per cent figure in Section~\ref{sec:framework}, and Figure~\ref{fig:nrcexample} an example of the per-comment NRC match counts from which the Step~3 binary indicators derive.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\linewidth]{fig_confusion_bert}
 \caption{Dissertation-stage per-class report and confusion matrix, fine-tuned BERT (dissertation Figure~7.1, p.~36). Class supports total 255,446; the reference labels are the VADER-seeded corpus labels, so these diagnostics measure agreement with the seed lexicon, not accuracy against the human criterion.}
 \label{fig:confbert}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{fig_model_agreement}
+\caption{Agreement between the two classifier families over the classified corpus, from the executed notebook: 225,010 of 255,446 comments (88.1 per cent). The dissertation text's figure of 85 per cent is superseded.}
+\label{fig:agreement}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\linewidth]{fig_nrc_example}
+\caption{Per-comment NRC lexicon match counts for one example (executed notebook). These raw counts, not the single dominant label, are the basis of the Step~3 binary emotion indicators.}
+\label{fig:nrcexample}
 \end{figure}
 
 \begin{figure}[h]
@@ -45,4 +59,4 @@ The dissertation's auditable seed rules (p.~18), reproduced here in typeset form
 
 \section{Data and Code Availability}
 
-Code, configuration, annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. The dissertation stage ran on Google Colab Pro (Python 3.11) with transformers 4.41, torch 2.3, scikit-learn 1.4, pandas 2.2, numpy 1.26, nltk 3.8, spacy 3.7, prophet 1.1, and matplotlib 3.8, under a global seed of 42, a temporal train-test split \todo{state the cut-off date}, and a 20 per cent stratified validation set for early stopping and calibration (dissertation p.~19). Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artefacts contain no personal data. Compute used: a single NVIDIA T4 GPU (16\,GB) on Google Colab Pro for the dissertation-stage models (dissertation p.~19); \todo{GPU hours, and hardware for the recomputation}. For the conference version, the completed mandatory ICWSM checklist will be placed after the references; together with the above, this covers the reproducibility items for ML experiments and data assets.
+Code, configuration, annotation guidelines, label sets, and aggregated per-event statistics are available at \todo{repository URL}. The dissertation stage ran on Google Colab (Python 3.11); the executed notebook's environment (torch 2.8, transformers 4.55, spacy 3.8, nltk 3.9, pandas 2.2) differs from the versions listed in the dissertation's reproducibility appendix (p.~19), and the recomputation will pin the real environment. The executed split was stratified random, 90 per cent train and 10 per cent test (229,901 and 25,545 comments, seed 42), not the temporal split the reproducibility appendix describes; the recomputation will use and report a temporal split alongside it. Raw post text is not redistributed, in line with platform terms; post identifiers are released where terms permit rehydration. Released artefacts contain no personal data. Compute used: a single NVIDIA T4 GPU (16\,GB) on Google Colab Pro for the dissertation-stage models (dissertation p.~19); \todo{GPU hours, and hardware for the recomputation}. For the conference version, the completed mandatory ICWSM checklist will be placed after the references; together with the above, this covers the reproducibility items for ML experiments and data assets.
