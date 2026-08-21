@@ -53,7 +53,7 @@ and cross-platform contrasts now filling the literature carry an error term of u
 This paper makes four contributions.
 \begin{enumerate}
   \item We formalise the platform-as-mode question for machine-labelled
-    constructs and give what we believe is the first application of the
+    constructs and give what we believe is the first adaptation of the
     psychometric equivalence toolkit to machine-classified policy
     sentiment with platform as the grouping facet.
   \item We specify a six-step protocol: same-event divergence testing;
@@ -67,27 +67,11 @@ This paper makes four contributions.
     \citep{czarnek2022}, and invariance results are treated as
     diagnostic evidence rather than grounds to pool
     \citep{robitzsch2023}.
-  \item We apply the protocol to \todo{approximately 279{,}000 posts;
-    confirm per-platform totals and the collection window after
-    recount: Ch5 platform sums reach roughly 395,000 (pp. 21-24)
-    against the 279,000 headline (p. 25), and the Ch7 figures classify
-    255,446 items (p. 36)} about UK economic policy on Twitter/X,
-    Reddit, YouTube, and Quora, labelled by a fine-tuned BERT
-    classifier and validated against a probability-sampled
-    human-annotated criterion \todo{to be drawn; the
-    dissertation-stage criterion was 200 balanced posts, kappa
-    approximately 0.78}.
-  \item \blocked{Empirical findings: whether, where, and by how much
-    cross-platform equivalence fails, and what the naive-versus-adjusted
-    contrast implies for pooled indices.}
+  \item We quantify the cost of assuming equivalence in a simulation with known ground truth: platforms that read the same latent opinion through different measurement functions produce a pooled index that distorts event shifts and can report the wrong sign of aggregate sentiment, while a measurement-adjusted index recovers the truth. \todo{Insert the final numbers once the generating parameters are pre-registered.}
+  \item We ground the protocol in a case study of the dissertation-stage instrument, a fine-tuned BERT classifier over 255,446 UK economic-policy comments from Twitter/X, Reddit, YouTube, and Quora, whose execution records supply the paper's motivating evidence; the full four-platform application, under fresh collection with the pre-registered design, is designated as the follow-up study.
 \end{enumerate}
 
 The paper proceeds as follows. Section~\ref{sec:related} locates the
 problem between computational text measurement and survey mode-effect
-research. Section~\ref{sec:data} describes the corpus, the anchor
-events, and the validation design. Sections~\ref{sec:divergence}
-to~\ref{sec:cost} then execute the six steps in order: establishing
-divergence, the generalizability, invariance, and multilevel analyses,
-linking, and the naive-versus-adjusted comparison, with results
-reported in place as each step completes.
+research. Section~\ref{sec:data} describes the motivating corpus, the anchor events, and the validation design. Sections~\ref{sec:divergence} to~\ref{sec:linking} specify Steps 1 to 5, the protocol the registered application executes; Section~\ref{sec:cost} reports Step 6, the simulation that quantifies the cost of assuming equivalence.
 Section~\ref{sec:limitations} states the limitations, Section~\ref{sec:ethics} sets out the ethics position, and Section~\ref{sec:conclusion} concludes.

@@ -1,24 +1,39 @@
 % ============================================================
 % 07_cost.tex
+% Step 6 as a simulation study with known ground truth.
 % ============================================================
 
-\section{Step 6: The Cost of Assuming Equivalence}
+\section{Step 6: The Cost of Assuming Equivalence, in Simulation}
 \label{sec:cost}
 
-The final step quantifies the cost of assuming equivalence, an assumption the field currently makes without testing it. From the same corpus we construct two indices. The naive index pools posts across platforms, the construction canonical since \citet{oconnor2010}; the dissertation's version was a daily mean of scored posts (Figure~\ref{fig:naive}), and Step 6 constructs both that variant and the share-negative variant. The adjusted index applies the platform-specific measurement parameters from Step 3 and, where the fork in Section~\ref{sec:linking} permits, the linking functions from Step 5. We compare the two on the quantities an analyst would actually report: index levels, trends, and the estimated sentiment shift around each anchor event, including sign flips in that shift. Both indices are also fed to a Prophet forecasting model, mirroring the dissertation's forecasting stage, which applied Prophet to a smoothed daily sentiment index and decomposed it into trend and seasonal components (Figure~\ref{fig:seasonal}); the forecast comparison is a downstream-consequences illustration only, since a biased but stable index can forecast well, and the primary loss is index levels, event shifts, and sign flips. Because Steps 2, 3 and 5 estimate parameters within anchor windows, applying them to the full corpus is an extrapolation; we report a sensitivity analysis excluding the Other/Unclear category, which never enters an estimation window. \todo{Specify how the Step 3 parameters become an index: the current plan is platform-specific latent means under the retained partial-invariance constraints, aggregated with fixed platform weights; confirm.} Finally, we simulate composition change: reweighting platform shares to mimic a platform losing API access \citep{davidson2023, goanta2026} shows how much apparent sentiment movement is a measurement and composition artefact rather than opinion change. Corrections for label error \citep{egami2023} leave this quantity unchanged: they address disagreement between classifier and criterion, whereas the artefact here arises between platforms.
+The final step quantifies the cost of assuming equivalence, an assumption the field currently makes without testing it. Unlike Steps 1 to 5, it does not require the corpus at all, because the ground truth is constructed: we simulate platforms whose measurement properties are known exactly, and ask how badly the standard index construction misreads them. The naive index pools posts across platforms, the construction canonical since \citet{oconnor2010}; the dissertation itself built such an index (Figure~\ref{fig:naive}), and its decomposition (Figure~\ref{fig:seasonal}) shows the trend and seasonal components an analyst would report from it.
+
+\paragraph{Design.}
+A latent daily sentiment series carries a known negative shift at an anchor event and recovers gradually. Each platform observes the same series through its own measurement function: an affordance bias shifts every expression, platform-specific thresholds discretise the result into negative, neutral, and positive, and expression noise is added; platform volume shares also drift over time, so composition changes as it did in the post-API record \citep{davidson2023, goanta2026}. Two indices are then computed daily. The naive index is the pooled mean of coded values across platforms. The adjusted index estimates each platform's latent value by inverting that platform's measurement function, then pools the estimates with inverse-variance weights. In the application the measurement parameters come from Step 3; in the simulation they are known, so the exercise isolates what adjustment can recover in principle and what pooling destroys.
+
+\paragraph{Quantities reported.}
+We compare the two indices on what an analyst would actually report: the estimated sentiment shift at the event, the day-by-day sign of aggregate sentiment, and the recovery trajectory, over repeated draws with fixed seeds. \todo{Final generating parameters (platform biases, thresholds, noise, composition drift, event shape, replication count) to be pre-registered with EH; insert the resulting numbers here.} A prototype run with illustrative parameters (Figure~\ref{fig:simdemo}) shows the pattern the design is built to expose: the pooled index misstates the size of the event shift and disagrees with the true sign of aggregate sentiment on a sixth of simulated days, while the adjusted index tracks the truth closely. The simulation code, with its seed, ships with the paper.
+
+\paragraph{What is deferred to the application.}
+Corpus-based variants of this exercise, reweighting platform shares to mimic a platform losing API access, and the forecast-error comparison that feeds both indices to a Prophet model as the dissertation's forecasting stage did, require the re-collected corpus and are registered for the follow-up study. Corrections for label error \citep{egami2023} would leave the simulated quantity unchanged in either case: they address disagreement between classifier and criterion, whereas the artefact here arises between platforms.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.85\linewidth]{fig_prophet_naive_index}
-\caption{The naive pooled index in practice: dissertation-stage daily mean sentiment pooled across platforms, with the Prophet fit and forecast band (dissertation Figure~7.7, p.~39). Several problems with the construction are visible here: days with a single post pin the daily mean at plus or minus one, no support threshold or volume weighting is applied, the uncertainty band ignores the bounded scale, and the axis spans 2010 to 2026, one reason the collection window is under recount. Step~6 compares this construction with a measurement-adjusted alternative.}
-\label{fig:naive}
+\includegraphics[width=0.8\linewidth]{fig_simulation_demo}
+\caption{Prototype simulation run with illustrative parameters (seed 20261201; final parameters to be pre-registered). The naive pooled index distorts the event shift and reports the wrong sign of aggregate sentiment on 10 of 60 simulated days; the measurement-adjusted index recovers the latent truth. In this run the true event shift is $-0.332$; the naive index estimates $-0.374$ and the adjusted index $-0.334$.}
+\label{fig:simdemo}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.8\linewidth]{fig_prophet_seasonal}
-\caption{Dissertation-stage Prophet decomposition of the pooled index (dissertation Figure~7.6, p.~39): a declining long-run trend and a midweek dip that Step~6 treats as a candidate composition artefact, equally consistent with weekday differences in platform mix and with mood itself. If Step~3 finds non-invariance, components like these inherit the measurement artefacts of the pooled construction.}
+\caption{Dissertation-stage Prophet decomposition of the pooled index (dissertation Figure~7.6, p.~39): a declining long-run trend and a midweek dip that the simulation treats as a candidate composition artefact, equally consistent with weekday differences in platform mix and with mood itself.}
 \label{fig:seasonal}
 \end{figure}
 
-\blocked{Results: naive versus adjusted index comparison, event-shift bias, sign flips, forecast error, and composition simulation.}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{fig_prophet_naive_index}
+\caption{The naive pooled index in practice: dissertation-stage daily mean sentiment pooled across platforms, with the Prophet fit and forecast band (dissertation Figure~7.7, p.~39). Several problems with the construction are visible here: days with a single post pin the daily mean at plus or minus one, no support threshold or volume weighting is applied, the uncertainty band ignores the bounded scale, and the axis spans 2010 to 2026, beyond any stated collection window. The simulation isolates the measurement component of exactly this construction.}
+\label{fig:naive}
+\end{figure}

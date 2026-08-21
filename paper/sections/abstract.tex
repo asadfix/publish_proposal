@@ -1,6 +1,7 @@
 % ============================================================
 % abstract.tex
-% ~190 words as written; the \todo results bring it to ~200.
+% Simulation-first framing; one \todo remains for the final
+% simulation headline once the parameters are pre-registered.
 % No citations in the abstract (AAAI convention).
 % ============================================================
 
@@ -11,18 +12,25 @@ read as differences in public opinion. These comparisons rest on an
 assumption that the classifier measures the same construct, on the
 same scale, on every platform. To our knowledge, no study has tested
 that assumption for machine-labelled constructs by asking whether the
-platform is part of the measurement. We adapt the psychometric equivalence toolkit (generalizability theory, measurement invariance and differential item functioning, and score linking) to machine-labelled policy sentiment, treating the platform as a survey
-mode. We apply it to \todo{approximately 279{,}000 posts; confirm totals
-and the collection window after recount: per-platform sums reach
-roughly 395,000 and the results figures classify 255,446 items} about
-UK economic policy from Twitter/X, Reddit, YouTube, and Quora
-\todo{collection window, pending recount}, labelled by a fine-tuned BERT classifier and validated
-against a probability-sampled human-annotated criterion \todo{to be
-drawn; the dissertation-stage criterion was 200 balanced posts, kappa
-approximately 0.78}. A same-event design controls topic and time,
-pre-identified fiscal events centred on the September 2022 mini-budget
-provide the linking anchors, and replication with a non-lexicon
-transformer separates platform mode effects from lexicon artefacts.
-\todo{One-sentence headline invariance result.} \todo{One-sentence
-naive pooled index versus measurement-adjusted index result.} The protocol lets a researcher test whether pooling platforms is defensible in a given corpus, or whether platform scores must be linked before any average is taken.
+platform is part of the measurement. We adapt the psychometric
+equivalence toolkit (generalizability theory, measurement invariance
+and differential item functioning, and score linking) to
+machine-labelled policy sentiment, treating the platform as a survey
+mode, and specify a six-step protocol with pre-registered anchor
+events, an anchor-density audit, and a two-classifier convergence
+control. A simulation with known ground truth quantifies what the
+assumption costs: platforms that read the same latent opinion through
+different measurement functions produce a pooled index that distorts
+the size of event shifts and can report the wrong sign of aggregate
+sentiment, while a measurement-adjusted index recovers the truth.
+\todo{Insert the final simulation numbers once the generating
+parameters are pre-registered.} A case study of the dissertation-stage
+instrument, a fine-tuned BERT classifier over 255,446 UK
+economic-policy comments from Twitter/X, Reddit, YouTube, and Quora,
+motivates the design and illustrates the instrument-dependence the
+protocol addresses; the full four-platform application, under fresh
+collection with the pre-registered design, is designated as the
+follow-up study. The protocol lets a researcher test whether pooling
+platforms is defensible in a given corpus, or whether platform scores
+must be linked before any average is taken.
 \end{abstract}
