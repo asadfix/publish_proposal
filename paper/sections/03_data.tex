@@ -32,13 +32,33 @@ Logistic regression (BoW) & 71.40\% & 0.72 & 0.71 & 0.71 \\
 \end{figure}
 
 \paragraph{Anchor events.}
-Cross-platform comparison requires posts about the same event at the same time. We pre-identified a set of UK fiscal policy events observed on all four platforms, with the September 2022 mini-budget as the centrepiece, and defined two windows per event: an acute 48-hour window and an extended two-week window. \todo{State the event-assignment rule: the keyword scheme of Appendix~\ref{app:keywords} plus the timestamp field per platform (question, answer, or comment time), fixed ex ante; validate relevance on a manual subsample within the expanded annotation.} We expect the acute windows to be sparse on Quora, whose question-and-answer format does not lend itself to event-locked measurement; the audit is designed to identify such platforms so they can be given a reduced role or excluded, and when a platform is excluded we report a gap in the data and claim nothing about its equivalence. An anchor-density audit precedes all analysis (Section~\ref{sec:framework}); platforms that fail the minimum post-count threshold for an event-window are excluded from that comparison, and the analysis is restricted to the platforms with adequate density if necessary. The dissertation reports lower data density in early 2022 (p.~25), so density is checked per event-window rather than assumed.
+Cross-platform comparison requires posts about the same event at the same time. We pre-registered fifteen UK fiscal policy events (Table~\ref{tab:anchors}), fixed on 21 August 2026 before any window count was computed, with the September 2022 mini-budget as the centrepiece, and defined two windows per event: an acute 48-hour window and an extended two-week window. \todo{State the event-assignment rule: the keyword scheme of Appendix~\ref{app:keywords} plus the timestamp field per platform (question, answer, or comment time), fixed ex ante; validate relevance on a manual subsample within the expanded annotation.} We expect the acute windows to be sparse on Quora, whose question-and-answer format does not lend itself to event-locked measurement; the audit is designed to identify such platforms so they can be given a reduced role or excluded, and when a platform is excluded we report a gap in the data and claim nothing about its equivalence. An anchor-density audit precedes all analysis (Section~\ref{sec:framework}); platforms that fail the minimum post-count threshold for an event-window are excluded from that comparison, and the analysis is restricted to the platforms with adequate density if necessary. The dissertation reports lower data density in early 2022 (p.~25), so density is checked per event-window rather than assumed.
 
 \begin{table}[t]
 \centering
-\caption{Anchor events with dates and per-platform post counts in the 48-hour and two-week windows.}
+\caption{Pre-registered anchor events, fixed before any window count was computed. Per-platform counts in the 48-hour and two-week windows are \blocked{the archive and the density audit}; the provisional inclusion thresholds are 200 comments per platform-event cell in the two-week window and 50 in the 48-hour window \todo{confirm thresholds before counting}. Dates to be verified against official records before the audit runs.}
 \label{tab:anchors}
-\blocked{the corpus recount and the anchor-density audit. Fix the inclusion rule ex ante: minimum posts per platform-event-window cell (\todo{value, with justification}), applied to both windows; failing cells are excluded and listed here.}
+\begin{tabular}{llr}
+\toprule
+Event & Date & Counts \\
+\midrule
+Budget 2020 (Covid response) & 11 Mar 2020 & \\
+Furlough scheme announced & 20 Mar 2020 & \\
+Budget 2021 & 3 Mar 2021 & \\
+Autumn Budget 2021 & 27 Oct 2021 & \\
+Energy bills package and Bank rate rise & 3 Feb 2022 & \\
+Cost-of-living package and windfall tax & 26 May 2022 & \\
+Energy Price Guarantee & 8 Sep 2022 & \\
+Mini-budget (centrepiece anchor) & 23 Sep 2022 & \\
+Statement reversing the mini-budget & 17 Oct 2022 & \\
+Autumn Statement 2022 & 17 Nov 2022 & \\
+Spring Budget 2023 & 15 Mar 2023 & \\
+Autumn Statement 2023 & 22 Nov 2023 & \\
+Spring Budget 2024 & 6 Mar 2024 & \\
+Autumn Budget 2024 & 30 Oct 2024 & \\
+Spring Statement 2025 & 26 Mar 2025 & \\
+\bottomrule
+\end{tabular}
 \end{table}
 
 \paragraph{Gold-standard sample.}
