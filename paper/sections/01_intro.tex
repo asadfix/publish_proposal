@@ -16,6 +16,13 @@ cross-platform comparison, or a pooled multi-platform index, on the
 assumption that the classifier behaves identically wherever it is
 pointed. The assumption is rarely stated, still more rarely examined, and it is not an obviously safe one. \citet{nogara2025} report that Perspective API scores German comments as more toxic than equivalent English ones: the instrument behaves differently in different languages. In \citet{atreja2025}, LLM annotations shift under changes of prompt wording alone. And \citet{greene2025} find that the same political actors are read differently on different platforms. Classifiers are instruments, and their behaviour depends on the conditions in which they are used.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{fig_simulation_demo}
+\caption{What assuming equivalence costs, in one simulation run with known ground truth (seed 20261201; parameters fixed ex ante, shipped with the code). The naive pooled index misstates the event shift and reports the wrong sign of aggregate sentiment on 13 of 60 days in this run; the measurement-adjusted index tracks the latent truth with no wrong sign day. Here the true event shift is $-0.332$; the naive index estimates $-0.369$ and the adjusted index $-0.326$. Section~\ref{sec:cost} reports 500 replications.}
+\label{fig:simdemo}
+\end{figure}
+
 When the labels are machine-produced, nobody asks with a formal test whether the platform is part of the measurement. When a
 classifier scores Reddit discussion of a budget more negative than
 tweets about the same budget, the difference is read as a fact about opinion, when it could equally be a property of the instrument. Character
@@ -36,7 +43,7 @@ effect and does not treat cross-mode differences as substantive until
 measurement equivalence has been established
 \citep{tourangeau2000,klausch2013,hox2015}, within a total-error
 accounting of where distortions enter \citep{groves2010}. Our claim is that a platform is a mode. The analogy has limits: absent random assignment of users to platforms or within-user cross-posting, the design identifies platform-level non-equivalence, a bundle of selection and measurement that Section~\ref{sec:limitations} unpacks, with mode as the leading interpretation rather than an established fact. Affordances stand to posts as interview
-settings stand to answers, and the psychometric toolkit built for modes and groups (generalizability theory \citep{cronbach1972,brennan2001}, measurement invariance testing \citep{meredith1993,putnick2016}, and score linking \citep{kolen2014}) transfers to machine-labelled constructs with the platforms as the groups. So far as we can find, no study has carried out that transfer: the toolkit has reached survey self-reports \citep{boyd2024},
+settings stand to answers, and the psychometric toolkit built for modes and groups (generalizability theory \citep{cronbach1972,brennan2001}, measurement invariance testing \citep{meredith1993,putnick2016}, and score linking \citep{kolen2014}) transfers to machine-labelled constructs with the platforms as the groups. The toolkit has reached survey self-reports \citep{boyd2024},
 annotator facets \citep{kennedy2020,sachdeva2022}, and single-platform
 text scales \citep{pokropek2026}, but the platform itself has stayed
 an unmodelled stratum.
@@ -56,22 +63,9 @@ This paper makes four contributions.
     constructs and give what we believe is the first adaptation of the
     psychometric equivalence toolkit to machine-classified policy
     sentiment with platform as the grouping facet.
-  \item We specify a six-step protocol: same-event divergence testing;
-    a fixed-facet generalizability study with a human-validated
-    criterion; categorical measurement invariance and differential item
-    functioning under effect-size criteria; multilevel decomposition of platform effects, with platform contrasts reported both with and without reaction latency; anchor-based score linking on pre-identified fiscal events,
-    centred on the September 2022 mini-budget; and a simulation
-    contrasting a naive pooled index with a measurement-adjusted one.
-    All tests are replicated with a non-lexicon transformer, so only
-    convergent non-invariance is read as a mode effect
-    \citep{czarnek2022}, and invariance results are treated as
-    diagnostic evidence rather than grounds to pool
-    \citep{robitzsch2023}.
-  \item We quantify the cost of assuming equivalence in a simulation with known ground truth: across 500 replications of one generating configuration fixed in advance, a pooled index that takes platform scores at face value misstates a known event shift by roughly an eighth, and because the platforms measure through different functions it reports the wrong sign of aggregate sentiment on nearly a quarter of days; a measurement-adjusted index recovers the shift with negligible bias and the correct sign on all but one day in sixty on average.
-  \item We ground the protocol in a case study of the dissertation-stage instrument, a fine-tuned BERT classifier over 255,446 UK economic-policy comments from Twitter/X, Reddit, YouTube, and Quora, whose execution records supply the paper's motivating evidence; the full four-platform application, under fresh collection with the pre-specified design, is designated as the follow-up study.
+  \item We specify a six-step protocol (Sections~\ref{sec:divergence} to~\ref{sec:cost}): same-event divergence testing, a fixed-facet generalizability study against a human-validated criterion, categorical invariance and DIF under effect-size criteria, multilevel adjustment for composition and timing, anchor-based linking centred on the September 2022 mini-budget, and a simulation of the cost of skipping the first five steps. Every test is replicated with a non-lexicon transformer, so only convergent non-invariance is read as a mode effect \citep{czarnek2022}, and invariance results are treated as diagnostic evidence rather than grounds to pool \citep{robitzsch2023}.
+  \item We quantify the cost of assuming equivalence in a simulation with known ground truth (Section~\ref{sec:cost}, Figure~\ref{fig:simdemo}): across 500 replications of one generating configuration fixed in advance, a naive pooled index misstates a known event shift by roughly an eighth and, because the platforms measure through different functions, reports the wrong sign of aggregate sentiment on nearly a quarter of days, errors the measurement-adjusted index avoids.
+  \item We ground the protocol in the instrument from the first author's MSc dissertation (Section~\ref{sec:data}), a fine-tuned BERT classifier over 255,446 UK economic-policy comments from Twitter/X, Reddit, YouTube, and Quora, whose execution records supply the motivating evidence; the full four-platform application, under fresh collection with the pre-specified design, is the designated follow-up study.
 \end{enumerate}
 
-The paper proceeds as follows. Section~\ref{sec:related} locates the
-problem between computational text measurement and survey mode-effect
-research. Section~\ref{sec:data} describes the motivating corpus, the anchor events, and the validation design. Sections~\ref{sec:divergence} to~\ref{sec:linking} specify Steps 1 to 5, the protocol the registered application executes; Section~\ref{sec:cost} reports Step 6, the simulation that quantifies the cost of assuming equivalence.
-Section~\ref{sec:limitations} states the limitations, Section~\ref{sec:ethics} sets out the ethics position, and Section~\ref{sec:conclusion} concludes.
+
