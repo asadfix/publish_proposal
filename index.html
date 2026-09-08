@@ -12,18 +12,16 @@
   body{background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;
        min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
   .box{width:100%;max-width:420px;text-align:center}
-  .mark{width:34px;height:34px;margin:0 auto 22px;border:2px solid var(--accent);border-radius:50%;
-        position:relative}
+  .mark{width:34px;height:34px;margin:0 auto 22px;border:2px solid var(--accent);border-radius:50%;position:relative}
   .mark:after{content:"";position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
-        width:9px;height:11px;border:2px solid var(--accent);border-radius:2px}
-  h1{font-size:20px;font-weight:normal;letter-spacing:.01em;margin-bottom:8px}
+       width:9px;height:11px;border:2px solid var(--accent);border-radius:2px}
+  h1{font-size:20px;font-weight:normal;margin-bottom:8px}
   p.sub{font-size:14px;color:var(--soft);line-height:1.55;margin-bottom:26px}
-  input{width:100%;padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-        font-size:15px;letter-spacing:.06em;text-align:center;border:1px solid var(--line);
-        border-radius:7px;background:#fff;color:var(--ink);outline:none}
+  input{width:100%;padding:12px 14px;font-family:ui-monospace,Menlo,monospace;font-size:15px;
+       letter-spacing:.06em;text-align:center;border:1px solid var(--line);border-radius:7px;background:#fff;outline:none}
   input:focus{border-color:var(--accent)}
   button{width:100%;margin-top:12px;padding:12px 14px;font-family:Georgia,serif;font-size:15px;
-         background:var(--accent);color:#fff;border:0;border-radius:7px;cursor:pointer}
+       background:var(--accent);color:#fff;border:0;border-radius:7px;cursor:pointer}
   button:disabled{opacity:.55;cursor:default}
   .msg{margin-top:14px;font-size:13.5px;min-height:20px;color:var(--accent)}
   .msg.working{color:var(--faint)}
@@ -47,23 +45,23 @@
 <script>
 (function(){
   var D=JSON.parse(document.getElementById('d').textContent);
+  var EXTRA="<script>\n(function(){\n  var ITER=600000, basePromise=null;\n  function base(){\n    if(basePromise) return basePromise;\n    var pass=null; try{pass=sessionStorage.getItem(\"k\");}catch(e){}\n    if(!pass) return null;\n    basePromise=crypto.subtle.importKey(\"raw\",new TextEncoder().encode(pass),\"PBKDF2\",false,[\"deriveBits\",\"deriveKey\"]);\n    return basePromise;\n  }\n  async function openAsset(name,label){\n    var bp=base();\n    if(!bp){alert(\"Session expired. Reload the page and enter the passphrase again.\");return;}\n    var n=document.createElement(\"div\");\n    n.style.cssText=\"position:fixed;left:0;right:0;bottom:0;padding:12px;text-align:center;background:#1c1b19;color:#fff;font:14px Georgia,serif;z-index:99999\";\n    n.textContent=\"Decrypting \"+label+\", this can take a few seconds...\";\n    document.body.appendChild(n);\n    try{\n      var r=await fetch(name+\".enc\",{cache:\"no-store\"});\n      if(!r.ok) throw new Error(\"fetch \"+r.status);\n      var b=new Uint8Array(await r.arrayBuffer());\n      var k=await crypto.subtle.deriveKey({name:\"PBKDF2\",salt:b.slice(0,16),iterations:ITER,hash:\"SHA-256\"},\n              await bp,{name:\"AES-GCM\",length:256},false,[\"decrypt\"]);\n      var out=await crypto.subtle.decrypt({name:\"AES-GCM\",iv:b.slice(16,28)},k,b.slice(28));\n      var url=URL.createObjectURL(new Blob([out],{type:\"application/pdf\"}));\n      n.remove(); window.open(url,\"_blank\");\n      setTimeout(function(){URL.revokeObjectURL(url);},180000);\n    }catch(e){ n.textContent=\"Could not open \"+label+\". Reload and try again.\"; setTimeout(function(){n.remove();},4000); }\n  }\n  document.addEventListener(\"click\",function(e){\n    var a=e.target.closest?e.target.closest('a[href$=\".pdf\"]'):null;\n    if(!a) return; e.preventDefault();\n    var f=a.getAttribute(\"href\").replace(/\\.pdf$/,\"\");\n    openAsset(f, f===\"dissertation\"?\"the dissertation\":\"the paper\");\n  },true);\n})();\n<\/script>";
   var f=document.getElementById('f'),pw=document.getElementById('pw'),
       go=document.getElementById('go'),m=document.getElementById('m');
   function b64(s){var b=atob(s),u=new Uint8Array(b.length);
     for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
-  function show(t,cls){m.textContent=t;m.className='msg'+(cls?' '+cls:'');}
+  function show(t,c){m.textContent=t;m.className='msg'+(c?' '+c:'');}
   async function unlock(pass,quiet){
     if(!pass)return;
     go.disabled=true;show('Decrypting, this takes a moment...','working');
     try{
-      var km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey']);
-      var k=await crypto.subtle.deriveKey(
-        {name:'PBKDF2',salt:b64(D.salt),iterations:D.iter,hash:'SHA-256'},
+      var km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveBits','deriveKey']);
+      var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(D.salt),iterations:D.iter,hash:'SHA-256'},
         km,{name:'AES-GCM',length:256},false,['decrypt']);
       var out=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(D.iv)},k,b64(D.ct));
       try{sessionStorage.setItem('k',pass);}catch(e){}
       var html=new TextDecoder().decode(out);
-      html=html.replace(/<\/body>/i, "\n<script>\n(function(){\n  var ITER=600000, keyP=null;\n  function derive(){\n    if(keyP) return keyP;\n    var pass=null; try{pass=sessionStorage.getItem('k');}catch(e){}\n    if(!pass) return null;\n    keyP=(async function(){\n      return await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveBits','deriveKey']);\n    })();\n    return keyP;\n  }\n  async function open(name,label){\n    var km=derive(); if(!km){alert('Session expired. Please reload and enter the passphrase again.');return;}\n    var note=document.createElement('div');\n    note.style.cssText='position:fixed;left:0;right:0;bottom:0;padding:12px;text-align:center;'+\n      'background:#1c1b19;color:#fff;font:14px Georgia,serif;z-index:99999';\n    note.textContent='Decrypting '+label+', this can take a few seconds...';\n    document.body.appendChild(note);\n    try{\n      var r=await fetch(name+'.enc',{cache:'no-store'});\n      if(!r.ok) throw new Error('fetch '+r.status);\n      var buf=new Uint8Array(await r.arrayBuffer());\n      var salt=buf.slice(0,16), iv=buf.slice(16,28), ct=buf.slice(28);\n      var base=await km;\n      var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:ITER,hash:'SHA-256'},\n              base,{name:'AES-GCM',length:256},false,['decrypt']);\n      var out=await crypto.subtle.decrypt({name:'AES-GCM',iv:iv},k,ct);\n      var url=URL.createObjectURL(new Blob([out],{type:'application/pdf'}));\n      note.remove();\n      window.open(url,'_blank');\n      setTimeout(function(){URL.revokeObjectURL(url);},120000);\n    }catch(e){ note.textContent='Could not open '+label+'. Reload and try again.';\n      setTimeout(function(){note.remove();},4000); }\n  }\n  document.addEventListener('click',function(e){\n    var a=e.target.closest && e.target.closest('a[href$=\".pdf\"]');\n    if(!a) return;\n    e.preventDefault();\n    var f=a.getAttribute('href').replace(/\\.pdf$/,'');\n    open(f, f==='dissertation'?'the dissertation':'the paper');\n  },true);\n})();\n</script>"+'</body>');
+      if(/<\/body>/i.test(html)){ html=html.replace(/<\/body>/i, EXTRA+'</'+'body>'); } else { html+=EXTRA; }
       document.open();document.write(html);document.close();
     }catch(e){
       try{sessionStorage.removeItem('k');}catch(_){}
@@ -72,9 +70,9 @@
     }
   }
   f.addEventListener('submit',function(e){e.preventDefault();unlock(pw.value.trim(),false);});
-  if(!(window.crypto&&crypto.subtle)){show('This browser cannot decrypt the page. Try Chrome, Safari or Firefox.');go.disabled=true;}
-  var saved=null;try{saved=sessionStorage.getItem('k');}catch(e){}
-  if(saved)unlock(saved,true); else pw.focus();
+  if(!(window.crypto&&crypto.subtle)){show('This browser cannot decrypt the page.');go.disabled=true;}
+  var s=null;try{s=sessionStorage.getItem('k');}catch(e){}
+  if(s)unlock(s,true); else pw.focus();
 })();
 </script>
 </body>
